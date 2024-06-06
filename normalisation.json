@@ -54,23 +54,6 @@
             "(?i)SEMANTIC IPC3000.*"
         ]
     },
-    "vendor_expired": {
-        "_comment": ["when pattern here check for keyword "],
-        "braun":["B. Braun"],
-        "festo": ["FESTO AG"],
-        "franklin": ["franklin electric fueling systems", "franklin fueling system"],
-        "GE": ["general electric"],
-        "Johnson & Johnson": ["Johnson"],
-        "Johnson Controls": ["Johnson"],
-        "LS Electric": ["LS"],
-        "LS industrial system": ["LS"],
-        "siemens": ["siemens ag"],
-        "siemens_energy": ["siemens energy"],
-        "sick": ["sick ag"],
-        "schneider electric": ["schneider electric Software llc"],
-        "citrix":[],
-        "Wago":[]
-    },
     "product_regex": {
         "siemens": [
             "\\bSIMATIC\\b", 
