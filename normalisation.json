@@ -1,0 +1,105 @@
+{
+    "cleaning":{
+        "_comment_to_pre_delete_vendor": [
+            "enginnering: lead to short names, update vendor list",
+            "Systems possible candidate",
+            "wireless  not sure if neccessary"
+        ],
+        "pre_delete_vendor":[
+            "(?i)\\bPte Ltd\\.?\\b",
+            "(?i)\\ba subsidiary of\\b",
+            "(?i)\\ban affiliate of\\b",
+            "(?i)\\bAG\\b",
+            "(?i)\\bAutomations?\\b",
+            "(?i)\\bcomputing\\b",
+            "(?i)\\bcorp\\b",
+            "(?i)\\bco\\b",
+            "(?i)\\bcommunication?s\\b",
+            "(?i)\\bcontrols?\\b",
+            "(?i)\\bCORPORATIONs?\\b",
+            "(?i)\\bElectrics?\\b",
+            "(?i)\\bElectronics?\\b",
+            "(?i)\\bEnergy\\b",
+            "(?i)\\bFueling\\b",
+            "(?i)\\bFr?\\b",
+            "(?i)\\bGmbH\\b",
+            "(?i)\\bGroup\\.?\\b",
+            "(?i)\\bInc\\b",
+            "(?i)\\bIndustrial\\b",
+            "(?i)\\bInternational\\b",
+            "(?i)\\bLimited\\b",
+            "(?i)\\bLaboratories\\b",
+            "(?i)\\bLaboratory\\b",
+            "(?i)\\bLimited\\b",
+            "(?i)\\bLLC\\b",
+            "(?i)\\bLtd\\b",
+            "(?i)\\bMedical\\b",
+            "(?i)\\bmobile\\b",
+            "(?i)\\bnetworks?\\b",
+            "(?i)\\bSoftware\\b",
+            "(?i)\\bSolutions?\\b",
+            "(?i)\\bSystems?\\b",
+            "(?i)\\bTechnologies\\b",
+            "(?i)\\bTechnology\\b",
+            "(?i)\\bWireless\\b"
+        ],
+        "patterns_product_name": [
+            "(?i)and earlier$",
+            "(?i)w\\.\\sPN$",
+            "(?i)\\(.*\\)",
+            "(?i)Advanced$|Lean$|series subscriber unit$|family$|devices$|Standard$|Basic$|family and below$|and below CPU$|and below$|and prior$|Extended$",
+            "(?i)V\\d\\..*",
+            "(?i)CPU$",
+            "(?i)SMART.*",
+            "(?i)SEMANTIC IPC3000.*"
+        ]
+    },
+    "vendor_expired": {
+        "_comment": ["when pattern here check for keyword "],
+        "braun":["B. Braun"],
+        "festo": ["FESTO AG"],
+        "franklin": ["franklin electric fueling systems", "franklin fueling system"],
+        "GE": ["general electric"],
+        "Johnson & Johnson": ["Johnson"],
+        "Johnson Controls": ["Johnson"],
+        "LS Electric": ["LS"],
+        "LS industrial system": ["LS"],
+        "siemens": ["siemens ag"],
+        "siemens_energy": ["siemens energy"],
+        "sick": ["sick ag"],
+        "schneider electric": ["schneider electric Software llc"],
+        "citrix":[],
+        "Wago":[]
+    },
+    "product_regex": {
+        "siemens": [
+            "\\bSIMATIC\\b", 
+            "\\bSCALANCE\\b", 
+            "\\bSIMOTION\\b", 
+            "\\bSIPLUS\\b", 
+            "\\bLOGO!\\b", 
+            "\\bRUGGEDCOM\\b"
+        ],
+        "festo": [],
+        "sick": [],
+        "schneider electric":[
+            "\\bMODICON\\b" 
+        ]
+    },
+    "function_keywords": [
+        "ethernet",
+        "interface",
+        "gateway",
+        "app",
+        "gw",
+        "sensor",
+        "module",
+        "modules",
+        "series",
+        "cpu",
+        "firmware",
+        "system",
+        "node",
+        "tool",
+        "linux"]
+}
