@@ -49,10 +49,16 @@
             "(?i)\\(.*\\)",
             "(?i)Advanced$|Lean$|series subscriber unit$|family$|devices$|Standard$|Basic$|family and below$|and below CPU$|and below$|and prior$|Extended$",
             "(?i)V\\d\\..*",
-            "(?i)CPU$",
-            "(?i)SMART.*",
+            "(?i)CPU$",     
+            "(?i)SMART.*",  
             "(?i)SEMANTIC IPC3000.*"
-        ]
+        ],
+        "comments": {
+            "(?i)V\\d\\..*": "für den Produktnamen irrelevant",
+            "(?i)CPU$": "keine Spezifikation",
+            "(?i)SMART.*": "End of life",
+            "(?i)SEMANTIC IPC3000.*": "only china"
+          }
     },
     "product_regex": {
         "siemens": [
