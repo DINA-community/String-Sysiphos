@@ -1,8 +1,10 @@
 # String-Sisyphos
 
-This repository provides regular expressions and dictonaries for the repository `String-Atlas`.
+> This repository provides regular expressions and dictionaries for the repository [`String-Atlas`](https://github.com/DINA-community/String-Atlas).
 
-Note that the attributes the regular expressions are pointing to are those used for the Netbox plugin
+String-Sisyphos is a collection of Word-books and regular expression, focusing on String consistency, normalization and mapping for CSAF and OT-Network Assets. This collection was designed for the [`DINA-community`](https://github.com/DINA-community) project, surrounding [`Malcolm`](https://github.com/cisagov/Malcolm) and [`DDDC`](https://github.com/DINA-community/DDDC-Netbox-plugin).
+
+Note that the attributes the regular expressions are pointing to are those used for the Netbox plugins.
 
 ## Dictonaries
 
@@ -10,7 +12,7 @@ Note that the attributes the regular expressions are pointing to are those used 
 
 The synonyms are case insensitive and have the purpose to normalize the input.
 
-### Normalisation
+### Normalization
 
 Pattern for cleaning.
 
@@ -18,12 +20,12 @@ Pattern for cleaning.
 
 Regular expressions for mining information out of a text (short or long string)
 
-### "Device_list"
+### Device_list
 
-Dictonary for several attributes.
+Dictonary for several attributes, especially device ones.
 
 ## License
 
 The software was developed on behalf of the [BSI](https://www.bsi.bund.de) \(Federal Office for Information Security\)
 
-Copyright (c) 2024 by DINA-Community Apache 2.0 [see License](/LICENSE)
+Copyright &copy; 2024 by DINA-Community Apache 2.0 License. [See License](/LICENSE)
