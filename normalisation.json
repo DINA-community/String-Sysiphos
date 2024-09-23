@@ -11,6 +11,8 @@
             "(?i)\\ban affiliate of\\b",
             "(?i)\\bAG\\b",
             "(?i)\\bAutomations?\\b",
+            "(?i)\\band\\b",
+            "(?i)\\bcompany\\b",
             "(?i)\\bcomputing\\b",
             "(?i)\\bcorp\\b",
             "(?i)\\bco\\b",
