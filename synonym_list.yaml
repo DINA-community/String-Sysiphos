@@ -1,4 +1,4 @@
-# List of synonyms for attributes used in the Netbox data model.
+# List of synonyms for attributes used in the NetBox data model.
 # The first entry is "alias" for the attribute itself 
 # Note: the first value of every entry will be used for the normalizer
 # Note: The normalizer should used after string cleaning!
@@ -9,7 +9,6 @@ Manufacturer:
     - 'Hersteller'
   Siemens: 
     - "Siemens"
-    - "siemens.com"
     - "Siemens Healthineers"
   Phoenix Contact:
     - "Phoenix Contact"

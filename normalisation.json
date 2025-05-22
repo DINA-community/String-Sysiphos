@@ -1,9 +1,9 @@
 {
     "cleaning":{
         "_comment_to_pre_delete_vendor": [
-            "enginnering: lead to short names, update vendor list",
+            "engineering: lead to short names, update vendor list",
             "Systems possible candidate",
-            "wireless  not sure if neccessary"
+            "wireless  not sure if necessary"
         ],
         "pre_delete_vendor":[
             "(?i)\\bPte Ltd\\.?\\b",
@@ -11,7 +11,6 @@
             "(?i)\\ban affiliate of\\b",
             "(?i)\\bAG\\b",
             "(?i)\\bAutomations?\\b",
-            "(?i)\\band\\b",
             "(?i)\\bcompany\\b",
             "(?i)\\bcomputing\\b",
             "(?i)\\bcorp\\b",
