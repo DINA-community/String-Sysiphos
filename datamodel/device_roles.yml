@@ -1,0 +1,489 @@
+---
+- name: Field Device
+  slug: field-device
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Controller
+  slug: controller
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: IT Server
+  slug: it-server
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Communication
+  slug: communication
+  parent: it-server
+  description: Acts as a group role
+  vm_role: true
+- name: storage
+  slug: storage
+  parent: it-server
+  description: Acts as a group role
+  vm_role: true
+- name: service A
+  slug: service-a
+  parent: it-server
+  description: Acts as a group role
+  vm_role: true
+- name: service B
+  slug: service-b
+  parent: it-server
+  description: Acts as a group role
+  vm_role: true
+- name: service C
+  slug: service-c
+  parent: it-server
+  description: Acts as a group role
+  vm_role: true
+- name: Management
+  slug: management
+  parent: it-server
+  description: Acts as a group role
+  vm_role: true
+- name: Network Structure
+  slug: network-structure
+  parent: none
+  description: Acts as a group role. devices that acts as a simple link between devices
+  vm_role: true
+- name: SCADA
+  slug: scada
+  parent: none
+  description: Supervisory control and data acquisition. May supervise one or more DCS, or PCS at distant geographic locations. Acts as a group role
+  vm_role: true
+- name: OT Client
+  slug: ot-client
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Office
+  slug: office
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: server
+  slug: server
+  parent: office
+  description: Acts as a group role
+  vm_role: true
+- name: Building automation
+  slug: building-automation
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Connected Device
+  slug: connected-device
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Monitoring
+  slug: monitoring
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Gateway
+  slug: gateway
+  parent: none
+  description: Acts as a group role
+  vm_role: true
+- name: Access point
+  slug: access-point
+  parent: network-structure
+  reason: AP with no further logic. Simple connection between two devices
+  description: Access point on premises
+  color: Pink
+  vm_role: true
+- name: Active Directory
+  slug: active-directory
+  parent: service-a
+  reason: This service is provided on a server
+  description: Central authentication in a network
+- name: Actuator
+  slug: actuator
+  parent: fielddevice
+  reason: level 0 device
+  description: Impact the physical process with standardized signals
+- name: Application server
+  slug: application-server
+  parent: service-a
+  color: Green
+  vm_role: true
+- name: Authentication server
+  slug: authentication-server
+  parent: service-a
+  color: Dark Green
+  vm_role: true
+- name: BAS
+  slug: bas
+  description: Building automation system
+  parent: scada
+  reason: Does what a SCADA does
+  color: Amber
+  vm_role: true
+- name: BMS
+  slug: bms
+  parent: management
+  reason: needed
+  description: Building management system
+  color: 
+  vm_role: true
+  color: Amber
+  vm_role: true
+- name: Bridge
+  slug: bridge
+  parent: network-structure
+  reason: like AP acts as a simple connection
+  description: needed
+  color: Pink
+  vm_role: true
+- name: Camera
+  slug: camera
+  parent: access-control
+  reason: needed and double mentioned
+  reason: It a sensor but with different behavior 
+  color: Amber
+  vm_role: true
+- name: Cloud server
+  slug: cloud-server
+  parent: storage
+  color: Green
+  vm_role: true
+- name: CNC
+  slug: cnc
+  parent: controller
+  description: Computer numerical control
+  color: Indigo
+  vm_role: true
+- name: Collaboration server
+  slug: collaboration-server
+  parent: management
+  reason: needed
+  color: Green
+  vm_role: true
+- name: Database server
+  slug: database-server
+  parent: storage
+  color: Green
+  vm_role: true
+- name: DCS
+  slug: dcs
+  parent: scada
+  description: Distributed control system
+  color: Purple
+  vm_role: true
+- name: DHCP server
+  slug: dhcp-server
+  parent: service-c
+  description: Dynamic host communication protocol server
+  color: Dark Green
+  vm_role: true
+- name: DNS server
+  slug: dns-server
+  parent: service-c
+  description: Domain name system server
+  color: Dark Green
+  vm_role: true
+- name: Domain controller
+  slug: domain-controller
+  parent: service-c
+  color: Dark Green
+  vm_role: true
+- name: EACS
+  slug: eacs
+  parent: access-control
+  description: Electronic access control
+  color: Amber
+  vm_role: true
+- name: EWS
+  slug: ews
+  parent: ot-client
+  description: Engineering Workstation
+- name: Fax
+  slug: fax
+  parent: telephony
+  color: Cyan
+  vm_role: true
+- name: File server
+  slug: file-server
+  parent: storage
+  color: Green
+  vm_role: true
+- name: Firewall
+  slug: firewall
+  parent: gateway
+  color: Dark Red
+  vm_role: true
+  description: Monitors and controls incoming and outgoing network traffic
+- name: Gateway Coupler
+  slug: gateway-coupler
+  parent: network-structure
+  description: Handles data transmission between different protocols
+- name: Historian
+  slug: historian
+  parent: storage
+  color: Purple
+  vm_role: true
+  description: Stores process values
+- name: HMI
+  slug: hmi
+  parent: ot-client
+  description: Human machine interface for field operation
+  color: Purple
+  vm_role: true
+- name: Hub
+  slug: hub
+  parent: network-structure
+  color: Grey
+  vm_role: true
+- name: HVAC
+  slug: hvac
+  parent: building-automation
+  description: Heating, ventilation and air conditioning
+  color: Amber
+  vm_role: true
+- name: Hypervisor
+  slug: hypervisor
+  parent: service-b
+  color: Light Green
+  vm_role: true
+- name: IDS
+  slug: ids
+  parent: monitoring
+  description: Intrusion detection system
+  color: Fuchsia
+  vm_role: true
+- name: IED
+  slug: ied
+  parent: controller
+  description: Intelligent Electronic Device
+- name: IIoT
+  slug: iiot
+  parent: fielddevice
+  reason: used for getting additional process information and assumed to act as sensor 
+  description: Industrial internet of things device
+  color: Purple
+  vm_role: true
+- name: IoT
+  slug: iot
+  parent: connected-devices
+  description: Internet of things device
+  color: Light Blue
+  vm_role: true
+- name: IPS
+  slug: ips
+  parent: monitoring
+  description: Intrusion prevention system
+  color: Fuchsia
+  vm_role: true
+- name: Kiosk
+  slug: kiosk
+  parent: connected-devices
+  description: Digital kiosk machines automate customer orders of goods and services.
+  color: Light Blue
+  vm_role: true
+- name: KVM
+  slug: kvm
+  parent: office 
+  reason: needed (or network-structure)
+  description: Keyboard, video and mouse switch
+  color: Light Blue
+  vm_role: true
+- name: Lighting
+  slug: lighting
+  parent: building-automation
+  description: Lighting controls
+  color: Amber
+  vm_role: true
+- name: Load balancer
+  slug: load-balancer
+  parent: service-b
+  color: Pink
+  vm_role: true
+- name: Mail server
+  slug: mail-server
+  parent: communication
+  color: Green
+  vm_role: true
+- name: Media server
+  slug: media-server
+  parent: storage
+  color: Green
+  vm_role: true
+- name: MES
+  slug: mes
+  parent: undefined
+  description: Manufacturing execution system
+  color: Indigo
+  vm_role: true
+- name: Modem
+  slug: modem
+  parent: network-structure
+  color: Pink
+  vm_role: true
+- name: NAS
+  slug: nas
+  parent: storage
+  description: Network attached storage
+  color: Green
+  vm_role: true
+- name: Network sensor
+  slug: network-sensor
+  parent: monitoring
+  color: Fuchsia
+  vm_role: true
+- name: NTP server
+  slug: ntp-server
+  parent: service-b
+  description: Network time protocol server
+  color: Dark Green
+  vm_role: true
+- name: PCS
+  slug: pcs
+  parent: scada
+  description: process control system
+  vm_role: true
+- name: Photocopier
+  slug: photocopier
+  parent: office
+  color: Light Blue
+  vm_role: true
+- name: Physical sensor
+  slug: physical-sensor
+  parent: fielddevice
+  color: Indigo
+  vm_role: true
+  description: Used to capture physical quantities.
+- name: PIMS
+  slug: pims
+  parent: management
+  description: Plant Information Management System
+  color: Purple
+  vm_role: true
+- name: PLC
+  slug: plc
+  parent: controller
+  description: Programmable logic controller
+  color: Purple
+  vm_role: true
+- name: PLM
+  slug: plm
+  parent: management
+  reason: needed
+  description: Product lifecycle management system
+  color: Indigo
+  vm_role: true
+- name: Print server
+  slug: print-server
+  parent: server
+  color: Green
+  vm_role: true
+- name: Printer
+  slug: printer
+  parent: office
+  color: Light Blue
+  vm_role: true
+- name: Proxy server
+  slug: proxy-server
+  parent: communication
+  reason: needed (or gateway or communication server)
+  color: Dark Green
+  vm_role: true
+- name: Real time communication server
+  slug: real-time-communication-server
+  parent: communication
+  color: Dark Green
+  vm_role: true
+- name: Repeater
+  slug: repeater
+  parent: network-structure
+  color: Pink
+  vm_role: true
+- name: Router
+  slug: router
+  parent: gateway
+  reason: needed
+  color: Pink
+  vm_role: true
+  description:  Monitors and controls incoming and outgoing network traffic
+- name: RTU
+  slug: rtu
+  parent: controller
+  description: Remote terminal unit
+  color: Purple
+  vm_role: true
+- name: Scada Client
+  slug: scada-client
+  parent: ot-client
+  description: Distinction from role HMI.
+- name: Scanner
+  slug: scanner
+  parent: fielddevice
+  description: barcode scanner and such alike
+  reason: kind of sensor
+  color: Light Blue
+  vm_role: true
+- name: SIEM
+  slug: siem
+  parent: management
+  reason: needed (or monitoring)
+  description: Security information and event management
+  color: Fuchsia
+  vm_role: true
+- name: Switch L2
+  slug: switch-l2
+  parent: network-structure
+  description: Layer 2 Switch.
+- name: Switch L3
+  slug: switch-l3
+  parent: gateway
+  description: Layer 3 Switch.
+- name: Switch unspecified
+  slug: switch-unspecified
+  parent: network-structure
+  color: Grey
+  vm_role: true
+- name: Telephony
+  slug: telephony
+  parent: office
+  color: Cyan
+  vm_role: true
+- name: Unspecified
+  slug: unspecified
+  parent: none
+  description: Default role
+- name: VCS
+  slug: vcs
+  parent: management
+  description: Version control system
+  color: Green
+  vm_role: true
+- name: VFD
+  slug: vfd
+  parent: fielddevice
+  description: A variable-frequency drive is a type of AC motor drive that controls speed and torque by varying the frequency of the input electricity.
+  color: Indigo
+  vm_role: true
+- name: Virtual Machine Server
+  slug: virtual-machine-server
+  parent: service-b
+  color: Light Green
+  vm_role: true
+- name: VPN server
+  slug: vpn-server
+  parent: communication
+  description: Virtual private network server
+  color: Dark Green
+  vm_role: true
+- name: Web server
+  slug: web-server
+  parent: communication
+  color: Green
+  vm_role: true
+- name: Workstation
+  slug: workstation
+  parent: ot-client
+  color: Light Green
+  vm_role: true
