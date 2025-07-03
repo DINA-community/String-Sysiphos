@@ -1,0 +1,1264 @@
+- name: ABB power
+  group: 1
+  slug: abb
+  info: Industrial power & automation systems, robotics and power grids
+- name: Abbott Laboratories
+  group: 5
+  slug: abbott
+  info: Global medical devices & diagnostics company
+- name: ABUS
+  group: 4
+  slug: abus
+  info: Physical security hardware such as locks, alarms, surveillance gear
+- name: Accenture
+  group: 6
+  slug: accenture
+  info: Global consulting & IT services firm driving digital transformation
+- name: Acoustic Technology (ATI Systems)
+  group: 4
+  slug: acoustic
+  info: Industrial-grade acoustic measurement tech provider
+- name: Adminer
+  group: 6
+  slug: adminer
+  info: Lightweight PHP tool for managing SQL & NoSQL databases
+- name: Advantech
+  group: 1
+  slug: advantech
+  info: Industrial embedded hardware and automation solutions
+- name: Aethon
+  group: 1
+  slug: aethon
+  info: Autonomous mobile robots for hospitals and warehouses
+- name: AGG
+  group: 7
+  slug: agg
+  info: none given
+- name: Airspan Networks
+  group: 3
+  slug: airspan
+  info: Wireless broadband and small-cell 4G/5G hardware
+- name: Akuvox
+  group: 3
+  slug: akuvox
+  info: Smart intercom and VoIP access control hardware
+- name: AliveCor
+  group: 6
+  slug: alivecor
+  info: Mobile ECG devices with AI-powered diagnostics
+- name: Altair
+  group: 6
+  slug: altair
+  info: Engineering simulation software & IoT analytics
+- name: Annke
+  group: 4
+  slug: annke
+  info: Video surveillance cameras and security hardware
+- name: APSystems
+  group: 1
+  slug: apsystems
+  info: Microinverters & monitoring hardware for solar PV
+- name: ARC Informatique
+  group: 6
+  slug: arc-informatique
+  info: IT consulting & software solutions for businesses
+- name: Ashlar Vellum
+  group: 6
+  slug: ashlar-vellum
+  info: CAD/CAM software for precision drawing and modeling
+- name: Atlas Copco
+  group: 1
+  slug: atlas-copco
+  info: Swedish industrial leader in compressors, vacuums & power tools
+- name: Auto Maskin
+  group: 2
+  slug: auto-maskin
+  info: Industrial machinery and manufacturing automation equipment
+- name: Automated Logic
+  group: 1
+  slug: Automated-Logic
+  info: Building automation control hardware systems
+- name: AUVESY
+  group: 6
+  slug: auvesy
+  info: Version control & data protection software for automation
+- name: AVEVA
+  group: 6
+  slug: aveva
+  info: Industrial engineering & plant design software suite
+- name: Axis Communications
+  group: 4
+  slug: axis
+  info: IP based video surveillance camera hardware
+- name: AzeoTech
+  group: 6
+  slug: azeotech
+  info: Data logging and process control software systems
+- name: B&R Industrial Automation
+  group: 1
+  slug: b&r
+  info: Industrial PLCs, motion control & automation components
+- name: Bachmann Electronic
+  group: 1
+  slug: bachmann-electronic
+  info: Embedded controllers and power electronics for industry
+- name: Baicells Technologies
+  group: 3
+  slug: baicells
+  info: 4G/5G small-cell base station hardware
+- name: Baker Hughes
+  group: 1
+  slug: baker-hughes
+  info: Industrial monitoring sensors & systems
+- name: Baxter
+  group: 5
+  slug: baxter
+  info: Medical devices & infusion pumps (industrial/medical gear)
+- name: Beacon Medaes
+  group: 5
+  slug: beacon-medaes
+  info: Medical-gas system components for hospitals (hardware)
+- name: Beckhoff
+  group: 1
+  slug: beckhoff
+  info: Industrial PC-based automation hardware & fieldbus I/O
+- name: Becton
+  group: 5
+  slug: becton
+  info: Medical diagnostic devices & laboratory equipment
+- name: Belden
+  group: 1
+  slug: belden
+  info: Industrial networking cables & connectivity solutions
+- name: Bentley Systems
+  group: 6
+  slug: bentley
+  info: Infrastructure design & engineering software platform
+- name: BINOM3
+  group: 6
+  slug: binom3
+  info: Industrial process monitoring & control software
+- name: BIOTRONIK
+  group: 5
+  slug: biotronik
+  info: Cardiac rhythm management & vascular medical devices
+- name: BirdDog
+  group: 3
+  slug: birddog
+  info: NDI video-over-IP hardware for live event production
+- name: Black Box
+  group: 3
+  slug: black-box
+  info: IT connectivity & KVM hardware, network infrastructure
+- name: BLF Tech
+  group: 3
+  slug: blf-tech
+  info: Broadband wireless hardware & private LTE/5G gear
+- name: BMC Medical
+  group: 5
+  slug: bmc-medical
+  info: Medical imaging devices and diagnostic hardware
+- name: Boston Scientific
+  group: 5
+  slug: boston-scientific
+  info: Cardiovascular & surgical medical device manufacturer
+- name: Cambium
+  group: 3
+  slug: cambium
+  info: Wireless broadband network hardware solutions
+- name: Capsule Technologies
+  group: 5
+  slug: capsule
+  info: Medical device integration & patient monitoring platform
+- name: Carestream
+  group: 5
+  slug: carestream
+  info: Medical imaging systems such as X-ray, dental, healthcare IT
+- name: Carlo Gavazzi
+  group: 1
+  slug: carlo-gavazzi
+  info: Industrial automation components such as sensors, relays, controls
+- name: Carrier LenelS2
+  group: 4
+  slug: carrier-lenels2
+  info: Physical security management such as access control & video
+- name: Cassia Networks
+  group: 3
+  slug: cassia
+  info: Industrial IoT Bluetooth routers & gateways
+- name: Centralite
+  group: 4
+  slug: centralite
+  info: Home/building safety sensors & smart-security devices
+- name: Certec EDV
+  group: 6
+  slug: certec-edv
+  info: Software solutions such as manufacturing & process control IT
+- name: Change Healthcare
+  group: 6
+  slug: change-healthcare
+  info: Healthcare software such as billing, analytics, and payment systems
+- name: Circontrol
+  group: 1
+  slug: circontrol
+  info: EV charging stations and power management hardware
+- name: Circutor
+  group: 1
+  slug: circutor
+  info: Power quality instruments & energy management hardware
+- name: Claroty
+  group: 6
+  slug: claroty
+  info: OT/IoT cybersecurity software for industrial control systems
+- name: CODESYS
+  group: 6
+  slug: codesys
+  info: Automation software like IEC 61131-3 programming platform
+- name: Cognex
+  group: 1
+  slug: cognex
+  info: Machine-vision industrial cameras & barcode readers
+- name: Columbia Weather
+  group: 4
+  slug: columbia-weather
+  info: Environmental sensors & weather-monitoring devices
+- name: Computrols
+  group: 1
+  slug: computrols
+  info: HVAC/building automation hardware & controls
+- name: Contec
+  group: 6
+  slug: contec
+  info: Embedded computing & data acquisition software/hardware
+- name: Contec Health
+  group: 5
+  slug: contec-health
+  info: Medical devices & health IT solutions provider
+- name: Continental AG
+  group: 1
+  slug: continental
+  info: Automotive industrial components such as tires, sensors, electronics
+- name: ControlByWeb
+  group: 3
+  slug: controlbyweb
+  info: Remote I/O and web-based control hardware
+- name: Controlled Electronic Management Systems Ltd
+  group: 4
+  slug: controlled-management
+  info: Safety alarms & access-control hardware systems
+- name: CP Plus
+  group: 4
+  slug: cp-plus
+  info: Video surveillance cameras & security hardware
+- name: Cradlepoint
+  group: 3
+  slug: cradlepoint
+  info: LTE/5G routers & network edge connectivity hardware
+- name: Crestron
+  group: 4
+  slug: crestron
+  info: Audio-visual control & smart-building automation hardware
+- name: Ctek
+  group: 1
+  slug: ctek
+  info: Battery chargers & industrial power management tools
+- name: CyberVision
+  group: 6
+  slug: cybervision
+  info: Operator training & simulation software systems
+- name: Dahua Technology
+  group: 4
+  slug: dahua
+  info: Video surveillance & security camera hardware
+- name: Daikin Holdings Singapore
+  group: 2
+  slug: daikin-holdings-singapore
+  info: HVAC systems & air-conditioning equipment
+- name: Datalogic
+  group: 1
+  slug: datalogic
+  info: Industrial barcode readers & automatic data capture hardware
+- name: Datalogics
+  group: 6
+  slug: datalogics
+  info: PDF software development kit & document-processing tools
+- name: Dataprobe
+  group: 1
+  slug: dataprobe
+  info: Power-equipment monitoring & remote control hardware
+- name: Davolink
+  group: 7
+  slug: davolink
+  info: none given
+- name: Delta Controls
+  group: 1
+  slug: delta-controls
+  info: Building-automation HVAC & control hardware systems
+- name: Delta Electronics
+  group: 1
+  slug: delta-electronics
+  info: Power supplies, industrial automation & energy conversion hardware
+- name: Detcon
+  group: 1
+  slug: detcon
+  info: Industrial gas-detection safety sensors & hardware
+- name: DEXMA
+  group: 6
+  slug: dexma
+  info: Energy-management software platform for buildings
+- name: Digi International
+  group: 3
+  slug: digi
+  info: Industrial IoT routers, gateways & wireless connectivity hardware
+- name: Digital Alert
+  group: 4
+  slug: digital-alert
+  info: Emergency alert & notification devices for public safety
+- name: Digium
+  group: 3
+  slug: digium
+  info: VoIP telephony hardware & business communications software
+- name: Dominion Voting Systems
+  group: 7
+  slug: dominion-voting
+  info: Electronic voting machines & tabulation hardware
+- name: Dover Fueling
+  group: 1
+  slug: dover
+  info: "Fuel\u2011pump systems & automated retail fueling hardware"
+- name: Eaton
+  group: 1
+  slug: eaton
+  info: Power management systems, industrial electrical components
+- name: Ecava
+  group: 6
+  slug: ecava
+  info: SCADA and industrial automation software (PMS)
+- name: Echelon
+  group: 3
+  slug: echelon
+  info: Smart grid and IoT networking hardware modules
+- name: Econolite
+  group: 1
+  slug: econolite
+  info: Traffic management systems & industrial control devices
+- name: EFACEC
+  group: 1
+  slug: efacec
+  info: Industrial automation, EV chargers & power transformers
+- name: EIPStackGroup
+  group: 6
+  slug: eipstackgroup
+  info: Industrial Ethernet/IP stack software library
+- name: Elcomplus
+  group: 6
+  slug: elcomplus
+  info: Manufacturing execution system (MES) software
+- name: Emerson
+  group: 1
+  slug: emerson
+  info: Automation hardware such as valves, sensors, control systems
+- name: Enphase
+  group: 1
+  slug: enphase
+  info: Solar microinverters and energy storage hardware
+- name: Entes
+  group: 1
+  slug: entes
+  info: Industrial power electronics such as inverters & monitoring units
+- name: ENTTEC
+  group: 3
+  slug: enttec
+  info: Lighting control hardware for shows & installations
+- name: Envitech
+  group: 1
+  slug: envitech
+  info: Industrial gas and water treatment equipment
+- name: ETIC Telecom
+  group: 3
+  slug: etic-telecom
+  info: Telecom & networking hardware solutions
+- name: EuroTel
+  group: 3
+  slug: eurotel
+  info: Telecom hardware and radio communications equipment
+- name: Exemys
+  group: 3
+  slug: exemys
+  info: Wireless infrastructure testers and networking hardware
+- name: EZAutomation
+  group: 1
+  slug: ezautomation
+  info: Industrial automation equipment and controllers
+- name: FANUC
+  group: 1
+  slug: fanuc
+  info: Industrial robotics and CNC automation hardware
+- name: FATEK
+  group: 1
+  slug: fatek
+  info: PLCs and industrial control controllers
+- name: Fazecast
+  group: 6
+  slug: fazecast
+  info: Network simulation software (SIP & media)
+- name: Fieldcomm
+  group: 6
+  slug: fieldcomm
+  info: Industrial fieldbus communication specs and software
+- name: Flexera
+  group: 6
+  slug: flexera
+  info: Software asset management and licensing platform
+- name: Franklin Fueling Systems
+  group: 1
+  slug: franklin-fueling
+  info: Fuel dispenser and card-reading hardware
+- name: Fresenius Kabi
+  group: 5
+  slug: fresenius
+  info: Medicines and medical technology for infusion, transfusion and clinical nutrition
+- name: Fujitsu
+  group: 3
+  slug: fujitsu
+  info: Fujitsu's hardware offerings mainly consist of personal and enterprise computing
+- name: GAIN Electronic Co. Ltd
+  group: 1
+  slug: gain
+  info: Industrial sensors, control electronics and modules
+- name: GE Digital
+  group: 6
+  slug: ge-digital
+  info: Industrial software such as asset performance and analytics
+- name: GE Healthcare
+  group: 5
+  slug: ge-healthcare
+  info: Medical imaging & diagnostic devices manufacturer
+- name: Gemalto
+  group: 3
+  slug: gemalto
+  info: Secure smart cards, authentication hardware
+- name: General Electric
+  group: 1
+  slug: general
+  info: Broad industrial hardware such as turbines, power, automation
+- name: GENIVI Alliance
+  group: 6
+  slug: genivi-alliance
+  info: Automotive in-vehicle infotainment software standards
+- name: GeoVision
+  group: 4
+  slug: geovision
+  info: Video surveillance & security cameras
+- name: Grundfos Pumps
+  group: 1
+  slug: grundfos-pumps
+  info: Industrial & commercial pump systems and controls
+- name: Haas Automation
+  group: 1
+  slug: haas
+  info: CNC machine tools and industrial machining centers
+- name: Hangzhou Xiongmai
+  group: 4
+  slug: hangzhou-xiongmai
+  info: Consumer security cameras and smart home devices
+- name: Hanwha Techwin
+  group: 4
+  slug: hanwha-techwin
+  info: Video surveillance camera hardware
+- name: HCC Embedded
+  group: 6
+  slug: hcc-embedded
+  info: Embedded software & real-time operating systems
+- name: HEIDENHAIN
+  group: 1
+  slug: heidenhain
+  info: Precision CNC controls & measurement systems
+- name: Hetronic
+  group: 1
+  slug: hetronic
+  info: Industrial radio remote controls for machinery
+- name: HID Global
+  group: 3
+  slug: hid-global
+  info: Secure access control hardware & credentials
+- name: Hikvision
+  group: 4
+  slug: hikvision
+  info: Video surveillance & security camera systems
+- name: Hillrom
+  group: 5
+  slug: hillrom
+  info: Medical devices such as patient beds, monitoring systems
+- name: Hirschmann Automation
+  group: 1
+  slug: hirschmann
+  info: Industrial networking & rugged Ethernet switches
+- name: Hitachi Energy
+  group: 1
+  slug: hitachi
+  info: Power grids, transformers & industrial electrical gear
+- name: HIWIN
+  group: 1
+  slug: hiwin
+  info: Motion control components such as linear guides, actuators
+- name: HMS Networks
+  group: 3
+  slug: hms
+  info: Industrial communication (IIoT) gateway hardware
+- name: Honeywell
+  group: 1
+  slug: honeywell
+  info: Industrial automation, sensors, controls, safety systems
+- name: Horner Automation
+  group: 1
+  slug: horner
+  info: Industrial control panels & PLC hardware
+- name: Host Engineering
+  group: 1
+  slug: host-engineering
+  info: Industrial controller hardware & embedded systems
+- name: Hyundai Motor America
+  group: 1
+  slug: hyundai-motor-america
+  info: Automotive manufacturing & powertrain components
+- name: Ice Qube
+  group: 4
+  slug: ice-qube
+  info: Home security cameras & alarm devices
+- name: ICONICS
+  group: 6
+  slug: iconics
+  info: Industrial automation software such as HMI/SCADA suite
+- name: IDEC
+  group: 1
+  slug: idec
+  info: Industrial control components such as relays, switches
+- name: IDenticard
+  group: 4
+  slug: identicard
+  info: Access control cards & security management hardware
+- name: Illumina
+  group: 5
+  slug: illumina
+  info: Genetic sequencing systems & biotech instruments
+- name: Inductive Automation
+  group: 6
+  slug: inductive
+  info: SCADA/IIoT software platform (Ignition)
+- name: Industrial Control Links
+  group: 1
+  slug: industrial-control-links
+  info: Fieldbus devices & industrial control connectors
+- name: InHand Networks
+  group: 3
+  slug: inhand
+  info: Industrial cellular routers & IIoT gateways
+- name: Inkscape
+  group: 6
+  slug: inkscape
+  info: Open-source vector graphics editing software
+- name: Insulet
+  group: 5
+  slug: insulet
+  info: Medical insulin pumps & wearable devices
+- name: Intel
+  group: 3
+  slug: intel
+  info: Semiconductors & server hardware manufacturer
+- name: Interlogix, Carrier Global Corporation
+  group: 4
+  slug: interlogix-carrier
+  info: Security alarms & access control hardware
+- name: INVT Electric
+  group: 1
+  slug: invt
+  info: Industrial inverter and power drive hardware
+- name: IPCOMM
+  group: 2
+  slug: ipcomm
+  info: Industrial wireless network hardware
+- name: Johnson & Johnson
+  group: 5
+  slug: johnson-johnson
+  info: Medical devices, pharmaceuticals & consumer healthcare
+- name: Johnson Controls
+  group: 1
+  slug: johnson-controls
+  info: Building automation hardware, HVAC & industrial controls
+- name: JTEKT
+  group: 1
+  slug: jtekt
+  info: Automotive steering systems & industrial bearings hardware
+- name: Keysight Technologies
+  group: 3
+  slug: keysight
+  info: Test & measurement instrumentation hardware
+- name: Kingspan
+  group: 1
+  slug: kingspan
+  info: Industrial insulation & building envelope systems
+- name: Korenix
+  group: 3
+  slug: korenix
+  info: Industrial Ethernet switches & network devices
+- name: KUKA
+  group: 1
+  slug: kuka
+  info: Industrial robots & automation systems
+- name: Kunbus
+  group: 2
+  slug: kunbus
+  info: Fieldbus & industrial communication hardware
+- name: Landis+Gyr
+  group: 1
+  slug: landis-gyr
+  info: Smart utility meters & grid infrastructure hardware
+- name: Lantech
+  group: 1
+  slug: lantech
+  info: Industrial packaging automation machinery
+- name: LAVA Computer
+  group: 3
+  slug: lava-computer
+  info: Embedded computing & IoT hardware systems
+- name: LOYTEC
+  group: 3
+  slug: loytec
+  info: Building automation network hardware (LonWorks/IP)
+- name: LS Electric
+  group: 1
+  slug: ls-electric
+  info: Power grid equipment & industrial automation hardware
+- name: Luxion
+  group: 6
+  slug: luxion
+  info: 3D rendering software for product visualization
+- name: M&M Software GmbH
+  group: 6
+  slug: mm-software-gmbh
+  info: Manufacturing execution & quality management software
+- name: Marel
+  group: 1
+  slug: marel
+  info: Food-processing automation hardware & systems
+- name: Matrikon
+  group: 6
+  slug: matrikon
+  info: Industrial data connectivity & OPC interface software
+- name: MatrikonOPC
+  group: 6
+  slug: matrikonopc
+  info: OPC server software for industrial communications
+- name: MB connect line
+  group: 3
+  slug: mb-connect-line
+  info: Remote access gateways for industrial control systems
+- name: MDT Software
+  group: 6
+  slug: mdt
+  info: SCADA and automation software tools
+- name: Measuresoft
+  group: 6
+  slug: measuresoft
+  info: Calibration management & equipment-tracking software
+- name: Medtronic
+  group: 5
+  slug: medtronic
+  info: Medical devices such as pacemakers, pumps, surgical tech
+- name: Mesa Labs
+  group: 5
+  slug: mesa-labs
+  info: Medical/environmental monitoring instrumentation
+- name: MiCODUS
+  group: 4
+  slug: micodus
+  info: Vehicle tracking & small security GPS devices
+- name: Microsoft
+  group: 6
+  slug: microsoft
+  info: Software, cloud services & developer platforms
+- name: Miele
+  group: 2
+  slug: miele
+  info: Commercial appliances & industrial laundry equipment
+- name: Mirion Technologies
+  group: 4
+  slug: mirion
+  info: Radiation detection hardware & safety instruments
+- name: Mitsubishi
+  group: 1
+  slug: mitsubishi
+  info: none given
+- name: Mobile Industrial Robots
+  group: 1
+  slug: mobile-industrial-robots
+  info: Autonomous mobile robots for industrial use
+- name: Motorola
+  group: 3
+  slug: motorola
+  info: Radios, scanners & communications hardware
+- name: MOXA
+  group: 3
+  slug: moxa
+  info: Industrial serial/Ethernet connectivity hardware
+- name: mySCADA
+  group: 6
+  slug: myscada
+  info: SCADA software platform for industrial monitoring
+- name: MZ Automation GmbH
+  group: 2
+  slug: mz-automation
+  info: Industrial communication routers & gateways
+- name: Nari
+  group: 1
+  slug: nari
+  info: Power solutions & grid automation hardware
+- name: National Instruments
+  group: 3
+  slug: national-instruments
+  info: Test hardware and data acquisition systems
+- name: Natus Medical
+  group: 5
+  slug: natus
+  info: Neonatal monitoring & neurodiagnostic devices
+- name: NetComm Wireless
+  group: 3
+  slug: netcomm-wireless
+  info: Telecommunications & broadband hardware
+- name: Newport
+  group: 3
+  slug: newport
+  info: Test and measurement instruments & optics hardware
+- name: NEXCOM
+  group: 2
+  slug: nexcom
+  info: Embedded industrial computers & IPC hardware
+- name: Nexx
+  group: 4
+  slug: nexx
+  info: Smart locks & home security hardware
+- name: Nokia
+  group: 3
+  slug: nokia
+  info: Telecom network hardware & 5G infrastructure
+- name: Nortek
+  group: 3
+  slug: nortek
+  info: Consumer/Pro security & automation hardware
+- name: NUUO
+  group: 4
+  slug: nuuo
+  info: Video management software/hardware for security
+- name: NXP Semiconductors
+  group: 3
+  slug: nxp-semiconductors
+  info: Semiconductor chips & system on chip hardware
+- name: OMICRON electronics
+  group: 1
+  slug: omicron
+  info: Test hardware for power systems & protection relays
+- name: Omron
+  group: 1
+  slug: omron
+  info: Industrial control relays, sensors & automation
+- name: OPC Foundation
+  group: 6
+  slug: opc-foundation
+  info: Industrial interoperability standard body (software)
+- name: Open Design Alliance
+  group: 6
+  slug: open-design-alliance
+  info: CAD file compatibility software & SDKs
+- name: OpenClinic GA
+  group: 6
+  slug: openclinic-ga
+  info: Open-source hospital information system (software)
+- name: Optergy
+  group: 6
+  slug: optergy
+  info: Building automation & energy management software
+- name: Opto 22
+  group: 1
+  slug: opto-22
+  info: Industrial controllers & I/O hardware
+- name: OPW Fuel Management Systems
+  group: 1
+  slug: opw-fuel-management
+  info: Fuel monitoring & control hardware
+- name: Oracle
+  group: 2
+  slug: oracle
+  info: none given
+- name: OSIsoft
+  group: 6
+  slug: osisoft
+  info: Industrial data historian software (now Aveva)
+- name: Ovarro
+  group: 3
+  slug: ovarro
+  info: Remote telecom & data network monitoring hardware
+- name: Panasonic
+  group: 3
+  slug: panasonic
+  info: Consumer/industrial electronics & home appliances
+- name: Pangea Communications
+  group: 3
+  slug: pangea
+  info: Wireless telecom network hardware
+- name: Paradox
+  group: 4
+  slug: paradox
+  info: Security alarms & smart home safety systems
+- name: PDQ Manufacturing
+  group: 1
+  slug: pdq-manufacturing
+  info: Industrial packaging machines & conveyors
+- name: PEPPERL+FUCHS
+  group: 1
+  slug: pepperl-fuchs
+  info: Industrial sensors & explosion-proof automation hardware
+- name: PerFact
+  group: 6
+  slug: perfact
+  info: Calibration software for industrial measurement instruments
+- name: Philips
+  group: 5
+  slug: philips
+  info: Medical imaging, diagnostics & healthcare devices
+- name: Phoenix Broadband
+  group: 3
+  slug: phoenix-broadband
+  info: Telecom & broadband equipment hardware
+- name: Phoenix Contact
+  group: 1
+  slug: phoenix-contact
+  info: Industrial connectors, PLCs & automation hardware
+- name: Pilz
+  group: 1
+  slug: pilz
+  info: Safety relays & industrial automation safety hardware
+- name: Prima Systems
+  group: 1
+  slug: prima
+  info: Industrial packaging & filling systems hardware
+- name: Priva
+  group: 6
+  slug: priva
+  info: Building management & greenhouse automation software
+- name: Progea
+  group: 6
+  slug: progea
+  info: SCADA/HMI industrial automation software
+- name: ProMinent
+  group: 1
+  slug: prominent
+  info: Metering pumps & chemical dosing hardware
+- name: ProSoft
+  group: 3
+  slug: prosoft
+  info: Industrial wireless communication modules
+- name: Prosys OPC
+  group: 6
+  slug: prosys-opc
+  info: OPC UA software toolkit for industrial integration
+- name: PSI GridConnect
+  group: 1
+  slug: psi-gridconnect
+  info: Grid automation & power distribution hardware
+- name: PTC
+  group: 6
+  slug: ptc
+  info: CAD/CAM/PLM & IoT software (Creo, Windchill, ThingWorx)
+- name: Pyramid Solutions
+  group: 6
+  slug: pyramid
+  info: Maintenance & industrial asset management software
+- name: QNAP
+  group: 3
+  slug: qnap
+  info: Network-attached storage & surveillance NAS hardware
+- name: Qognify
+  group: 6
+  slug: qognify
+  info: Video security & operations management software
+- name: Qualcomm Life
+  group: 5
+  slug: qualcomm-life
+  info: Healthcare IoT connectivity platform & software
+- name: Quest
+  group: 6
+  slug: quest
+  info: IT management & database administration software
+- name: Real Time Automation
+  group: 3
+  slug: real-time
+  info: Industrial I/O & communication interface hardware
+- name: Red Hat
+  group: 6
+  slug: red-hat
+  info: Enterprise Linux, middleware & open-source cloud software
+- name: Red Lion
+  group: 3
+  slug: red-lion
+  info: Industrial automation networking & protocol converters
+- name: Reliable Controls
+  group: 1
+  slug: reliable
+  info: Building automation HVAC control hardware
+- name: Reolink
+  group: 4
+  slug: reolink
+  info: Home security cameras & smart surveillance systems
+- name: Rittal
+  group: 2
+  slug: rittal
+  info: Industrial enclosures, racks & climate control cabinets
+- name: RoboDK
+  group: 6
+  slug: robodk
+  info: Offline programming & simulation software for robots
+- name: Roche Diagnostics
+  group: 5
+  slug: roche-diagnostics
+  info: In-vitro diagnostic devices and systems
+- name: Rockwell Automation
+  group: 1
+  slug: rockwell
+  info: Industrial automation hardware & control systems
+- name: RONDS
+  group: 6
+  slug: ronds
+  info: Oil & gas industry control system software
+- name: SAE IT systems
+  group: 6
+  slug: sae-it-systems
+  info: Vehicle certification and approval software
+- name: Saia Burgess
+  group: 1
+  slug: saia-burgess
+  info: Building automation PLC hardware & controllers
+- name: Santesoft
+  group: 6
+  slug: santesoft
+  info: Quality management & production tracking software
+- name: Satel Iberia
+  group: 3
+  slug: satel-iberia
+  info: Radio telemetry modules & wireless data hardware
+- name: SAUTER
+  group: 1
+  slug: sauter
+  info: Building automation hardware & HVAC control systems
+- name: Scada LTS
+  group: 6
+  slug: scada-lts
+  info: Open-source SCADA software for industrial control
+- name: Schneider Electric
+  group: 1
+  slug: schneider-electric
+  info: Electrical distribution, automation & power management
+- name: Schweitzer Engineering
+  group: 1
+  slug: schweitzer
+  info: Protection relays & power system monitoring hardware
+- name: SDG Technologies
+  group: 3
+  slug: sdg-technologies
+  info: Communication modules for utilities & industrial networks
+- name: Secheron
+  group: 1
+  slug: secheron
+  info: High-voltage power transformers & grid equipment
+- name: Secomea
+  group: 6
+  slug: secomea
+  info: Remote access software for industrial automation systems
+- name: Sensormatic Electronics
+  group: 4
+  slug: sensormatic
+  info: Retail loss-prevention sensors & security hardware
+- name: Sewio
+  group: 3
+  slug: sewio
+  info: Real-time location system hardware for indoor tracking
+- name: SICK
+  group: 1
+  slug: sick
+  info: Industrial sensors & safety light curtains
+- name: Sielco
+  group: 1
+  slug: sielco
+  info: Remote I/O hardware for industrial control systems
+- name: Sielco Sistemi
+  group: 1
+  slug: sielco-sistemi
+  info: SCADA/HMI hardware and industrial control units
+- name: Siemens
+  group: 1
+  slug: siemens
+  info: Industrial automation, drives, PLC, sensors & power
+- name: Siemens Healthineers
+  group: 5
+  slug: siemens-healthineers
+  info: Medical imaging & diagnostics equipment
+- name: Sierra Wireless
+  group: 3
+  slug: sierra-wireless
+  info: IoT cellular modules & industrial routers
+- name: Silex Technology (with GE Healthcare)
+  group: 3
+  slug: silex
+  info: Connectivity hardware for medical imaging systems
+- name: SIMPlight
+  group: 6
+  slug: simplight
+  info: Industrial visualization & dashboard software
+- name: SMA Solar Technology
+  group: 1
+  slug: sma-solar
+  info: Solar inverters and PV system hardware
+- name: Smiths Medical
+  group: 5
+  slug: smiths-medical
+  info: Medical infusion, respiratory & anesthesia devices
+- name: SOCOMEC
+  group: 1
+  slug: socomec
+  info: Power monitoring, switches & industrial UPS systems
+- name: Softing
+  group: 3
+  slug: softing
+  info: Industrial networking and protocol gateway hardware
+- name: Softneta
+  group: 6
+  slug: softneta
+  info: Medical device integration & hospital IT software
+- name: Solar Controls
+  group: 1
+  slug: solar
+  info: Solar thermal control systems & building automation hardware
+- name: SOOIL Developments
+  group: 1
+  slug: sooil-developments
+  info: Industrial weighbridges and truck scales hardware
+- name: Spacelabs
+  group: 5
+  slug: spacelabs
+  info: Patient monitoring & anesthesia systems hardware
+- name: SpiderControl
+  group: 6
+  slug: spidercontrol
+  info: Web-based SCADA software for industrial automation
+- name: St. Jude Medical
+  group: 5
+  slug: jude-medical
+  info: Cardiac and neurostimulation medical implant devices
+- name: Step Tools
+  group: 6
+  slug: step-tools
+  info: Electrical engineering software for power transmission
+- name: Stryker
+  group: 5
+  slug: stryker
+  info: Surgical, orthopedic and medical device manufacturer
+- name: Sub-IoT project
+  group: 6
+  slug: sub-iot-project
+  info: Software framework for low-power IoT sensing
+- name: SUBNET
+  group: 3
+  slug: subnet
+  info: Industrial network consulting & secure hardware
+- name: Suprema
+  group: 4
+  slug: suprema
+  info: Biometric access control & security hardware
+- name: SWARCO TRAFFIC SYSTEMS
+  group: 1
+  slug: swarco-traffic
+  info: Traffic light controllers & road signaling hardware
+- name: Swisslog Healthcare
+  group: 5
+  slug: swisslog-healthcare
+  info: Hospital logistics robots & medical delivery systems
+- name: Synergy Systems & Solutions
+  group: 6
+  slug: synergy
+  info: Industrial SCADA & control software integrator
+- name: Systech
+  group: 6
+  slug: systech
+  info: Traceability & serialization software for pharma industry
+- name: Tec4Data
+  group: 6
+  slug: tec4data
+  info: Data analysis & SCADA integration platform
+- name: TEL-STER
+  group: 3
+  slug: tel-ster
+  info: Access control hardware for elevators and buildings
+- name: Telecrane
+  group: 1
+  slug: telecrane
+  info: Wireless crane remote controls & industrial radio
+- name: Teledyne DALSA
+  group: 1
+  slug: teledyne-dalsa
+  info: Machine vision cameras & industrial imaging hardware
+- name: Teltonika
+  group: 3
+  slug: teltonika
+  info: IoT routers, vehicle routers & tracking hardware
+- name: Texas Instruments
+  group: 3
+  slug: texas-instruments
+  info: Semiconductors & analog integrated hardware
+- name: Thales
+  group: 3
+  slug: thales
+  info: Aerospace, defense electronics & secure comms hardware
+- name: ThroughTek
+  group: 6
+  slug: throughttek
+  info: P2P video streaming SDK & IoT software
+- name: TIBCO Software
+  group: 6
+  slug: tibco
+  info: Integration, analytics & event-processing software
+- name: Trane
+  group: 1
+  slug: trane
+  info: HVAC systems & building automation hardware
+- name: Treck
+  group: 6
+  slug: treck
+  info: Embedded TCP/IP stack software for devices
+- name: Triangle MicroWorks
+  group: 6
+  slug: triangle-microworks
+  info: Utility communications software & protocol stack
+- name: Tridium
+  group: 6
+  slug: tridium
+  info: Building automation integration software (Niagara Framework)
+- name: Trihedral Engineering
+  group: 6
+  slug: trihedral-engineering
+  info: SCADA/Vizualization & industrial control software
+- name: Uffizio
+  group: 6
+  slug: uffizio
+  info: Fleet management & GPS tracking software
+- name: Unified Automation GmbH
+  group: 6
+  slug: unified
+  info: OPC UA development toolkits for industrial automation
+- name: Unitronics
+  group: 1
+  slug: unitronics
+  info: PLCs with built-in HMI for industrial control
+- name: Universal Robots
+  group: 1
+  slug: universal-robots
+  info: Collaborative robotic arms for industrial automation
+- name: Unspecified
+  group: 7
+  slug: unspecified
+  info: none given
+- name: Valmet
+  group: 1
+  slug: valmet
+  info: Industrial process control & automation for paper/pulp/energy
+- name: Vecna Technologies
+  group: 6
+  slug: vecna
+  info: Healthcare automation software & patient self-service solutions
+- name: VideoInsight
+  group: 4
+  slug: videoinsight
+  info: Video management software for surveillance
+- name: VIPA
+  group: 1
+  slug: vipa
+  info: PLC and I/O automation hardware systems
+- name: VISAM
+  group: 6
+  slug: visam
+  info: HMI systems and industrial visualization software
+- name: Vyaire Medical
+  group: 5
+  slug: vyaire
+  info: Respiratory diagnostic & ventilation devices
+- name: WAGO
+  group: 1
+  slug: wago
+  info: Automation, fieldbus I/O, and terminal block solutions
+- name: Walchem
+  group: 1
+  slug: walchem
+  info: Chemical metering pumps & water treatment controllers
+- name: WECON
+  group: 1
+  slug: wecon
+  info: HMI and PLC hardware for industrial control
+- name: Weidmueller
+  group: 1
+  slug: weidmueller
+  info: Industrial connectivity & automation electronics
+- name: Weintek
+  group: 1
+  slug: weintek
+  info: Human Machine Interfaces (HMIs) for industrial control
+- name: WellinTech
+  group: 6
+  slug: wellintech
+  info: SCADA & industrial automation software
+- name: Westermo
+  group: 1
+  slug: westermo
+  info: Industrial networking and data communication hardware
+- name: Wibu-Systems
+  group: 6
+  slug: wibu-systems
+  info: Licensing and IP protection software for embedded systems
+- name: WIN-911
+  group: 6
+  slug: win-911
+  info: Alarm notification software for SCADA and industrial monitoring
+- name: Wind River
+  group: 6
+  slug: wind-river
+  info: Real-time operating systems and embedded software
+- name: xArrow
+  group: 6
+  slug: xarrow
+  info: HMI/SCADA software for industrial automation
+- name: XINJE
+  group: 1
+  slug: xinje
+  info: PLC, HMI, and motion control hardware for automation
+- name: Xiongmai Technology
+  group: 4
+  slug: xiongmai
+  info: Video surveillance cameras and DVR/NVR systems
+- name: Xylem
+  group: 1
+  slug: xylem
+  info: Water treatment and pumping technology hardware
+- name: Yokogawa
+  group: 1
+  slug: yokogawa
+  info: Process control, test measurement, and industrial automation
+- name: Ypsomed
+  group: 5
+  slug: ypsomed
+  info: Insulin delivery systems and self-injection medical devices
+- name: Zavio
+  group: 4
+  slug: zavio
+  info: Network video surveillance cameras and NVR systems
+- name: Zebra Technologies
+  group: 3
+  slug: zebra
+  info: Barcode scanners, RFID, mobile computing & printing hardware
