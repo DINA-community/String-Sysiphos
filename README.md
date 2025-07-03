@@ -26,7 +26,7 @@ Dictionary for several attributes, especially device ones.
 
 ## NetBox libraries
 
-This libararies are a result of the String-Atlas or student thesis as a byproduct.
+This libraries are a result of the String-Atlas or student thesis as a byproduct.
 
 ### Manufacturers
 
@@ -41,12 +41,16 @@ The field `group` divided the companies into different working areas:
 - Group6: Pure software or CAD/engineering tools.
 - Group7: Group for remaining companies
 
-## Roles
+### Device Roles
 
-`roles.yaml` provided role reflecting the feature since NetBox version [`4.x-x`](commitling).
+> Note that this file is located only in the branch `data_model` at the moment.
+
+`device_roles.yml` provided role reflecting the hierarchical feature for device roles since NetBox version [`4.3`](https://netboxlabs.com/docs/netbox/release-notes/version-4.3#hierarchical-device-roles-18245).
 
 ```yaml
-add example
+- name: physical-sensor
+  slug: physical-sensor
+  parent: fielddevice
 ```
 
 ## License
