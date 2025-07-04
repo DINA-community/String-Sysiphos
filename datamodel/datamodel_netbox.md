@@ -8,21 +8,7 @@
 
 This show how the data model is placed and the status of implementation.
 
-## Fragen/TODO
-
-Open questions:
-
-- [NetBox model](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/)
-
-## TODOS
-
-- a links to the fields and use # sign check
-- sortieren nach device, device type und software
-- update device type issue
-- check hardware as core field?
-- check communication partner value
-
-### Legend
+## Legend
 
 ```markdown
     * ❓ = The attribution is unclear
@@ -31,7 +17,7 @@ Open questions:
     * 🔨 = Adjustments to the current state of the DDDC plugin are necessary
 ```
 
-*Table 2: Data Model for NetBox Plugins by DINA Community.*
+## Table 2: Data Model for NetBox Plugins by DINA Community
 
 |Name   | NetBox | Field | Action |Description/Purpose |
 | - | - | - | - |- |
@@ -67,25 +53,3 @@ Open questions:
 |[PURL](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31334-full-product-name-type---product-identification-helper---purl)                   |Software:Hashes    | custom | package URL (purl), is also used as CSAF product identification helper | - |
 |[SBOM_urls](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31335-full-product-name-type---product-identification-helper---sbom-urls)             |Software:sbom_urls | custom | The URL is a unique identifier. The content is secondary| - |
 |[x_generic_uris](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31338-full-product-name-type---product-identification-helper---generic-uris)          |Software:x_generic_uris AND DeviceType:x_generic_uris| custom |unique id given by the vendor (e.g. [#649](https://github.com/oasis-tcs/csaf/issues/649))| - |
-
-### Tasks
-
-- adjust role yaml files (Malcolm PR)
-
-#### Code
-
-##### device_update.py
-
-device_update.py#
-def 
-deprecated because roles can have child/parents
-
-device_update.py#L288-302
-def 
-
-|File|function|Lines|Action|Comment|Issue|
-|-|-|-|-|-|-|
-|device_update.py| change_device_router |L288-302 | deprecated  |deprecated because roles can have child/parents  | #1 |
-|device_update.py| change_device_role   |L161-178 | revision    |Need revision for handling child parents properly| #1 |
-|device_update.py| change_device_type_keep_manufacturer| L119-138| revision| check if handled properly | branch P625|
-

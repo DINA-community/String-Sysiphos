@@ -12,7 +12,7 @@ Legend
 
 - (new Core): former custom field is now part of the core model
 - (new): new custom field
-- (custom field): Former custom field name, der entsprechend zu ersetzen ist
+- (custom field): Former custom field name, which is replaced
 
 | **ASSET**                       | |
 | ------------------------------- | ------------------------------------------------------------------------ |
@@ -27,7 +27,7 @@ Legend
 | `hardware_name (new)`           | - `$.product_tree..branches[?(@.category=="product_name")].name`  |
 | **Device**                      |   |
 | `name`                          | - `$.product_tree..branches[?(@.category=="host_name")].name`  |
-| `serial`                        | - `$.product_tree.full_product_names[*].product_identification_helper.serial_number[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.serial_number[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.serial_number[*]` |
+| [`serial`](/datamodel_attributes.md#serial-number)                        | - `$.product_tree.full_product_names[*].product_identification_helper.serial_number[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.serial_number[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.serial_number[*]` |
 | **Software**                    |   |
 | `name`                          | - `$.product_tree..branches[?(@.category=="product_name")].name` |
 | `Manufacturer:name`             | - `$.product_tree..branches[?(@.category=="vendor")].name`  |

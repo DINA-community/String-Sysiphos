@@ -11,22 +11,19 @@
 The use case and reason for the implementation of parent/child relationship for roles is based on the [following issue #18245](https://github.com/netbox-community/netbox/issues/18245)
 
 ```text
-Use case
-
 In an environment where there are a lot of different device roles, it may be useful to be able to group them much like in the same way Tenants and Tenant Groups, or Contacts and Contact Groups are grouped today.
 
 I can envisage that (for example) you may have a "Rack Infrastructure" Device Role Group which then has roles specific for "Patch Panel", "Power" etc.
 
 Another example may be Network Switches, where you may want to segregate the Device Role based on function, while keeping them all under a Network Switch parent group.
-
-```text
+```
 
 Also, this feature can be used to group device roles for machine learning approach when not enough data is provided for a single device role but for a group.  
 
-There are open task in the corresponding `device_roles.yml`:
-
- - color in relation to parent role
- - reason fields that contains open questions
+>There are open task in the corresponding `device_roles.yml`:
+>
+>- color in relation to parent role
+>- reason fields that contains open questions to be addressed
 
 ### Role Structure
 

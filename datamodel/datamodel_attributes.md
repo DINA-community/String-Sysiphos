@@ -10,17 +10,12 @@
 
 | Task   | Status    |
 |-|-|
-|- include table 2 from xls into this document| done|
-|- include attributes from paper|done|
-|- update with description of #14125|done|
-|- check documentation of DDDC|done|
-| check with CSAF  | done |
 | check attribute description of NetBox| ok|
 | data collection (tables) review by K. H.| open|
 | CSAF | full product name|
 | CSAF | Mapping klar mit NetBox kenntlich machen|
 | Field und Action trennen | open |
-| Link zu Attributen in allen Dokumenten| |
+| Link zu Attributen in allen Dokumenten| open |
 
 add purpose to each attribute
 purpose: for IDS, CSAF, vulnerability, critical operation
@@ -40,72 +35,57 @@ Legend for possible sources
 * :construction_worker:= Manual by user
 ```
 
-| **Device**            | Main source (possible source)             |
-|-|-|
-| device key                | :question:                            |
-| device name               | :computer:                            |
-| mac_address               | :computer:                            |
-| ip_address                | :computer:                            |
-| VLAN                      | :calling:                             |
-| serial number             | :construction_worker: (:calling: )    |
-| (primary) role            | :construction_worker: (:mag:)         |
-| secondary role            | :construction_worker:                 |
-| operation status          | :computer:                            |
-| physical or virtual       | :construction_worker:, :question:     |
-| backup frequency / type   | :construction_worker:                 |
-| hypervisor                | :construction_worker:                 |
-| Location within hypervisor| :construction_worker:                 |
-| safety                    | :construction_worker:                 |
-| exposure                  | :construction_worker: (:computer:)    |
-| date of manufacture       | :construction_worker:                 |
-| site                      | :construction_worker: (:computer:)    |
-| rack                      | :construction_worker:                 |
-| location                  | :construction_worker:                 |
-
-### Hostname equals Device Name mrt
-
-Text field containing the descriptive name of the device.
-Potentially useful for understanding context and function of the device in the network if included in host naming conventions.
-
-### VLAN
-
-Useful for understanding its grouping on the network.
-
-### Serial Number
-
-Text field for the serial number of the device. Helps to determine the affectedness. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.
-
-### Primary Role -mrt
-
-Useful for understanding context and function of the device in the network. Note: Be aware, that with [NetBox 4.3](https://netboxlabs.com/docs/netbox/en/stable/release-notes/version-4.3/#hierarchical-device-roles-18245) roles can be child or parent (optional). For instance a firewall now can be a child of a firewall.
-
-### Secondary Role
-
-Multiple objects field added to the Device object. It should be possible to assign multiple Device Roles to a device. Therefore, this custom field enables the user to designate multiple Device Roles for a device using this feature. Additionally, the existing ’Role’ attribute of a device should be understood as the primary role of the device. For instance, a primary role of a S7-1200 can be PLC and a secondary role a bus coupler.
-
-### Operation Status
-
-The device's operational status.
-
-### Physical or Virtual
-
-Is the asset physical or virtual.
+| **Device**                            | Main source (possible source)         |
+|-                           |  -                                    |
+| [backup](#backup-frequency--type)                             | :construction_worker:                 |
+| [baseline image](#baseline-image)                             | :construction_worker:                 |
+| [criticality](#criticality)                                   | :construction_worker:                 |
+| [date of manufacture](#date-of-manufacture)                   | :construction_worker:                 |
+| [device key](#device-key)                                     | :question:                            |
+| [device name](#device-name)                                   | :computer:                            |
+| [exposure](#exposure)                                         | :construction_worker: (:computer:)    |
+| [hostname](#hostname)                                         | :computer:                            |
+| [hypervisor](#hypervisor)                                     | :construction_worker:                 |
+| [hypervisor(location within)](#hypervisor-location-within)    | :construction_worker:                 |
+| [location](#location)                                         | :construction_worker:                 |
+| [mac_address](#mac-address)                                   | :computer:                            |
+| [operation status](#operation-status)                         | :computer:                            |
+| [owner](#owner)                                               | :construction_worker:                 |
+| [rack](#rack)                                                 | :construction_worker:                 |
+| [role primary](#role-primary)                                 | :construction_worker: (:mag:)         |
+| [role secondary](#role-secondary)                             | :construction_worker:                 |
+| [safety](#safety)                                             | :construction_worker:                 |
+| [serial number](#serial-number)                               | :construction_worker: (:calling: )    |
+| [site](#site)                                                 | :construction_worker: (:computer:)    |
+| [time source](#time-source)                                   | :construction_worker: (:computer:)    |
+| [user accounts](#user-accounts)                               | :construction_worker: (:computer:)    |
+| [vlan](#vlan)                                                 | :calling:                             |
+| [virtual](#virtual)                                           | :construction_worker:, :question:     |
 
 ### Backup Frequency / Type
 
 This attribute provides frequency for how often backups are performed (e.g., daily, weekly, monthly) and method used (e.g., full, incremental, differential).
 
-### Hypervisor
+### Baseline Image
 
-If applicable, this attribute provides context in what type of hypervisor is running the VM
+Useful to know if there is a particular known-good image that the OS installation was based on, aiding in post-incident recovery
 
-### Location Within Hypervisor
+### Criticality
 
-This attribute provides context on where the VM resides within the hypervisor
+Enables device to be managed based on its operational role, safety impact, and/or exposure to risks.
 
-### Safety
+### Date of Manufacture
 
-Boolean field added to the Device object. Specifies, if the device is used/provides safety functionality.
+This information might be relevant for legacy products when mapping against new information where the product is renamed or listed under a new vendor. Also, it can be used to determine the obsolescence of the device.
+
+### Device key
+
+Unique identifier assigned to the asset by the organization
+
+### Device name
+
+Text field containing the descriptive name of the device.
+Potentially useful for understanding context and function of the device in the network if included in host naming conventions.
 
 ### Exposure
 
@@ -116,9 +96,62 @@ Selection added to the Device Type object. Specifies the grade of exposure to ot
 - Direct: The asset is directly accessible to or from a zone with lower trust.
 - Unknown: Value if category for exposure is unknown.  
 
-### Date of Manufacture
+### Hostname
 
-This information might be relevant for legacy products when mapping against new information where the product is renamed or listed under a new vendor. Also, it can be used to determine the obsolescence of the device.
+see Device Name
+
+### Hypervisor
+
+If applicable, this attribute provides context in what type of hypervisor is running the VM
+
+### Hypervisor (Location within)
+
+This attribute provides context on where the VM resides within the hypervisor
+
+### Location
+
+GPS coordinates of the device for geo location. [NetBox](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/location/)
+
+### MAC address
+
+Useful for determining manufacturer, if not otherwise specified.  
+**Note**: Could only refer to network card manufacturer
+
+### Operation Status
+
+The device's operational status.
+
+### Owner
+
+Useful in understanding who owns or is responsible for the machine
+
+### Rack
+
+The [rack](<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/rack/>) within which this device is installed (optional).
+
+### Role (primary)
+
+Useful for understanding context and function of the device in the network.  
+Note: Be aware, that with [NetBox 4.3](https://netboxlabs.com/docs/netbox/en/stable/release-notes/version-4.3/#hierarchical-device-roles-18245) roles can be child or parent (optional). For instance a firewall now can be a child of a gatway.
+
+### Role (secondary)
+
+Multiple objects field added to the Device object. It should be possible to assign multiple Device Roles to a device. Therefore, this custom field enables the user to designate multiple Device Roles for a device using this feature. Additionally, the existing ’Role’ attribute of a device should be understood as the primary role of the device. For instance, a primary role of a S7-1200 can be PLC and a secondary role a bus coupler.
+
+### Safety
+
+Boolean field added to the Device object. Specifies, if the device is used/provides safety functionality.
+
+### Serial Number
+
+Text field for the serial number of the device. Helps to determine the affectedness. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.
+
+### Site
+
+Specifies the name of the site in which the device is located.
+<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/site/>
+
+also Useful when conducting user behavior analysis where timelines come into play (local time zone)
 
 ### Time Source
 
@@ -128,28 +161,13 @@ This attribute provides clarity on how an asset synchronizes its operations (e.g
 
 Useful in knowing which user account is expected to be most active, or if it’s expected to be accessed by many different users
 
-### Owner
+### VLAN
 
-Useful in understanding who owns or is responsible for the machine
+Useful for understanding its grouping on the network.
 
-### Baseline Image
+### Virtual
 
-Useful to know if there is a particular known-good image that the OS installation was based on
-
-### Site
-
-Specifies the name of the site in which the device is located.
-<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/site/>
-
-also Useful when conducting user behavior analysis where timelines come into play (local time zone)
-
-### Rack
-
-The [rack](<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/rack/>) within which this device is installed (optional).
-
-### Location
-
-GPS coordinates of the device for geo location. [NetBox](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/location/)
+Is the asset physical or virtual.
 
 ## Device Type
 
@@ -157,35 +175,24 @@ The device type can be represented with many attributes. Instead of using only o
 
 | **Device Type**   | -    |
 |-|-|
-| manufacturer              | :mag:   |
-| device family             | :mag:   |
-| model                     | :calling:   |
-| part number               | :calling:   |
-| device type description   | :construction_worker:    |
-| hardware name             | :calling:   |
-| hardware version          | :calling:  |
-| cpe                       | :construction_worker:   |
+| [cpe](#cpe)                                           | :construction_worker:     |
+| [device family](#device-family)                       | :mag:                     |
+| [device type description](#device-type-description)   | :construction_worker:     |
+| [hardware name](#hardware-name)                       | :calling:                 |
+| [hardware version](#hardware-version)                 | :calling:                 |
+| [manufacturer](#manufacturer-of-device-type)          | :mag:                     |
+| [model](#model)                                       | :calling:                 |
+| [part number](#part-number)                           | :calling:                 |
 
-### Manufacturer of Device Type
+### CPE
 
-Legally valid designation of the natural or judicial body which is directly responsible for the design, production, packaging
-and labeling of a product in respect to its being brought into the market.\[[IDTA 02003 1 2](https://industrialdigitaltwin.org/wp-content/uploads/2022/10/IDTA-02003-1-2_Submodel_TechnicalData.pdf)\].
+Text field added to the Device Type object. It specifies the Common Platform Enumeration (CPE) string of the device type.
 
 ### Device Family
 
 It is usually family a model is assigned to.
 
-### Model
-
-Model is the specification of device_family.
-A model number can be used as an article number. However, an article number is not always/necessarily a model number. Usually, all products have model numbers. Often they are listed on the sticker on the device besides the serial number.
-
-### Part Number
-
-Part number specifies the stock keeping unit (SKU). It can be the same as model number (NetBox:
-part_number), especially when seller is the vendor itself. In [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31337-full-product-name-type---product-identification-helper---skus) it is mentioned that the sku sometimes called "item number", "article number" or "product number".
-
-### Description
+### Device Type Description
 
 Additional, optional field for detailed information regarding the model description or purpose of this particular device type in the operation site.
 It can be used as an additional reminder alongside the device type name (e.g. CPU 414-3 PN/DP central unit with 4 MB RAM...). Could be partially part of full_product_name_t/name in a CSAF document.
@@ -199,22 +206,32 @@ Further specification of device type. It is usually the product name of manufact
 Point of purchase (may not be manufacturer)
 Multiple products exist in multiple hardware versions (due to PCB layout changes or chip shortages or hardware improvements), which can have impact on the software that can be used with the device.
 
-### CPE
+### Manufacturer of Device Type
 
-Text field added to the Device Type object. It specifies the Common Platform Enumeration (CPE) string of the device type.
+Legally valid designation of the natural or judicial body which is directly responsible for the design, production, packaging
+and labeling of a product in respect to its being brought into the market.\[[IDTA 02003 1 2](https://industrialdigitaltwin.org/wp-content/uploads/2022/10/IDTA-02003-1-2_Submodel_TechnicalData.pdf)\].
+
+### Model
+
+Model is the specification of device_family.
+A model number can be used as an article number. However, an article number is not always/necessarily a model number. Usually, all products have model numbers. Often they are listed on the sticker on the device besides the serial number.
+
+### Part Number
+
+Part number specifies the stock keeping unit (SKU). It can be the same as model number (NetBox:
+part_number), especially when seller is the vendor itself. In [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31337-full-product-name-type---product-identification-helper---skus) it is mentioned that the sku sometimes called "item number", "article number" or "product number".
 
 ## Service (check the plugin usecase! TODO)
 
 By services the interaction within the IT/OT and outside the perimeter is documented.
 
-| **Service**                           |   Main source (possible source) |
-|-                                      |   -           |
-| Communication partner IP              | :computer:    |
-| Communication transport protocol      | :computer:    |
-| protocol                              | :computer:    |
-| ports                                 | :computer:    |
+| **Service**                             |   Main source (possible source) |
+|-                                                          |   -           |
+| [Communication partner IP](#communication-partner---ip)   | :computer:    |
+| [protocol](#protocolservices)                             | :computer:    |
+| [ports](#portsservices)                                   | :computer:    |
 
-### Communication partner - IP - check the plugin usecase
+### Communication partner - IP
 
 Not all observed CP have to be expected ones. This entry serves as baseline (truth of state) for IDS
 
@@ -231,23 +248,24 @@ The port number of a service can be used to determine the protocol type if unkno
 
 | **Software**          | Main source (possible source) |
 |-|-|
-| manufacturer          | :calling: (:construction_worker:) |
-| software type         | :calling: (:construction_worker:) |
-| software name         | :calling: (:construction_worker:) |
-| software version      | :calling: (:construction_worker:) |
-| software version name | :calling: (:construction_worker:) |
-| software manufacturer | :calling: (:construction_worker:) |
-| firmware name         | :calling: (:construction_worker:) |
-| firmware version      | :calling: (:construction_worker:) |
-| firmware version name | :calling: (:construction_worker:) |
-| firmware manufacturer | :calling: (:construction_worker:) |
-| operating system      | :calling: (:construction_worker:) |
-| operating version     | :calling: (:construction_worker:) |
-| cpe                   | :construction_worker:   |
-| hashes                | :construction_worker:   |
-| purl                  | :construction_worker:   |
-| sbom_urls             | :construction_worker:   |
-| x_generic_uris        | :construction_worker:   |
+| [manufacturer](#firmware-manufacturer)            | :calling: (:construction_worker:) |
+| [software type](#software-type)                   | :calling: (:construction_worker:) |
+| [software name](#software-name)                   | :calling: (:construction_worker:) |
+| [software version](#software-version)             | :calling: (:construction_worker:) |
+| [software version name](#software-version-name)   | :calling: (:construction_worker:) |
+| [software manufacturer](#software-manufacturer)   | :calling: (:construction_worker:) |
+| [firmware name](#firmware-name)                   | :calling: (:construction_worker:) |
+| [firmware version](#firmware-version)             | :calling: (:construction_worker:) |
+| [firmware version name](#firmware-version-name)   | :calling: (:construction_worker:) |
+| [firmware manufacturer](#firmware-manufacturer)   | :calling: (:construction_worker:) |
+| [operating system](#operating-system)             | :calling: (:construction_worker:) |
+| [operating version](#operating-system-version)    | :calling: (:construction_worker:) |
+| [operating version name](#operating-system-version-name) | :calling: (:construction_worker:) |
+| [cpe](#cpe-software)                              | :construction_worker:   |
+| [hashes](#hashes)                                 | :construction_worker:   |
+| [purl](#purl)                                     | :construction_worker:   |
+| [sbom_urls](#sbom--urls)                          | :construction_worker:   |
+| [x_generic_uris](#x_generic_uris)                 | :construction_worker:   |
 
 The fields for characterizing the software and respectively firmware are as follows:
 
