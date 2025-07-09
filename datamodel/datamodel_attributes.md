@@ -6,7 +6,7 @@
 
 ---
 
-## TODO
+## Introduction
 
 | Task   | Status    |
 |-|-|
@@ -17,16 +17,11 @@
 | Field und Action trennen | open |
 | Link zu Attributen in allen Dokumenten| open |
 
-add purpose to each attribute
-purpose: for IDS, CSAF, vulnerability, critical operation
-collection: passive (with DDDC and DeviceMgt) - marketing
+- add purpose to each attribute
+- purpose: for IDS, CSAF, vulnerability, critical operation
+- collection: passive (with DDDC and DeviceMgt) - marketing
 
-qs: Such as is also used to clarify information in a statement.
-A good way to remember how to properly use like or such as in a sentence is to remember that like is used in similes; it’s always used to compare something to something else. Such as can also be another way of saying including, since both can be used to list specific examples
-
-## Device
-
-Legend for possible sources
+### Legend for possible sources
 
 ```markdown
 * :computer: = PCAP
@@ -35,13 +30,15 @@ Legend for possible sources
 * :construction_worker:= Manual by user
 ```
 
+## Device
+
 | **Device**                            | Main source (possible source)         |
 |-                           |  -                                    |
 | [backup](#backup-frequency--type)                             | :construction_worker:                 |
 | [baseline image](#baseline-image)                             | :construction_worker:                 |
 | [criticality](#criticality)                                   | :construction_worker:                 |
 | [date of manufacture](#date-of-manufacture)                   | :construction_worker:                 |
-| [device key](#device-key)                                     | :question:                            |
+| [device key](#device-key)                                     | :construction_worker:                 |
 | [device name](#device-name)                                   | :computer:                            |
 | [exposure](#exposure)                                         | :construction_worker: (:computer:)    |
 | [hostname](#hostname)                                         | :computer:                            |
@@ -58,6 +55,7 @@ Legend for possible sources
 | [serial number](#serial-number)                               | :construction_worker: (:calling: )    |
 | [site](#site)                                                 | :construction_worker: (:computer:)    |
 | [time source](#time-source)                                   | :construction_worker: (:computer:)    |
+| [time zone](#time-zone)                                       | :construction_worker: (:computer:)    |
 | [user accounts](#user-accounts)                               | :construction_worker: (:computer:)    |
 | [vlan](#vlan)                                                 | :calling:                             |
 | [virtual](#virtual)                                           | :construction_worker:, :question:     |
@@ -68,7 +66,7 @@ This attribute provides frequency for how often backups are performed (e.g., dai
 
 ### Baseline Image
 
-Useful to know if there is a particular known-good image that the OS installation was based on, aiding in post-incident recovery
+Useful to know if there is a particular known-good image that the OS installation was based on, aiding in post-incident recovery.
 
 ### Criticality
 
@@ -78,9 +76,13 @@ Enables device to be managed based on its operational role, safety impact, and/o
 
 This information might be relevant for legacy products when mapping against new information where the product is renamed or listed under a new vendor. Also, it can be used to determine the obsolescence of the device.
 
+### Device Description
+
+Field for detailed device description like purpose or specfic configuration.
+
 ### Device key
 
-Unique identifier assigned to the asset by the organization
+Unique identifier assigned to the asset by the organization.
 
 ### Device name
 
@@ -98,19 +100,21 @@ Selection added to the Device Type object. Specifies the grade of exposure to ot
 
 ### Hostname
 
-see Device Name
+see [Device Name](#device-name)
 
 ### Hypervisor
 
-If applicable, this attribute provides context in what type of hypervisor is running the VM
+If applicable, this attribute provides context in what type of hypervisor is running the VM.  
+*This attribute needs further specification*
 
 ### Hypervisor (Location within)
 
-This attribute provides context on where the VM resides within the hypervisor
+This attribute provides context on where the VM resides within the hypervisor.
+*This attribute needs further specification*
 
 ### Location
 
-GPS coordinates of the device for geo location. [NetBox](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/location/)
+GPS coordinates of the device for geo location [NetBox](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/location/).
 
 ### MAC address
 
@@ -123,7 +127,7 @@ The device's operational status.
 
 ### Owner
 
-Useful in understanding who owns or is responsible for the machine
+Useful in understanding who owns or is responsible for the machine.
 
 ### Rack
 
@@ -151,15 +155,17 @@ Text field for the serial number of the device. Helps to determine the affectedn
 Specifies the name of the site in which the device is located.
 <https://netboxlabs.com/docs/netbox/en/stable/models/dcim/site/>
 
-also Useful when conducting user behavior analysis where timelines come into play (local time zone)
-
 ### Time Source
 
 This attribute provides clarity on how an asset synchronizes its operations (e.g. NTP, GPS, Atomic Clock, Local Clock, etc...) as disruption of an external time source and associated drift could result in significant impacts.
 
+### Time Zone
+
+Useful when conducting user behavior analysis where timelines come into play (local time zone).
+
 ### User Accounts
 
-Useful in knowing which user account is expected to be most active, or if it’s expected to be accessed by many different users
+Useful in knowing which user account is expected to be most active, or if it’s expected to be accessed by many different users.
 
 ### VLAN
 
@@ -221,7 +227,7 @@ A model number can be used as an article number. However, an article number is n
 Part number specifies the stock keeping unit (SKU). It can be the same as model number (NetBox:
 part_number), especially when seller is the vendor itself. In [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31337-full-product-name-type---product-identification-helper---skus) it is mentioned that the sku sometimes called "item number", "article number" or "product number".
 
-## Service (check the plugin usecase! TODO)
+## Service
 
 By services the interaction within the IT/OT and outside the perimeter is documented.
 
@@ -248,26 +254,19 @@ The port number of a service can be used to determine the protocol type if unkno
 
 | **Software**          | Main source (possible source) |
 |-|-|
-| [manufacturer](#firmware-manufacturer)            | :calling: (:construction_worker:) |
+| [manufacturer](#software-manufacturer)            | :calling: (:construction_worker:) |
 | [software type](#software-type)                   | :calling: (:construction_worker:) |
 | [software name](#software-name)                   | :calling: (:construction_worker:) |
 | [software version](#software-version)             | :calling: (:construction_worker:) |
 | [software version name](#software-version-name)   | :calling: (:construction_worker:) |
 | [software manufacturer](#software-manufacturer)   | :calling: (:construction_worker:) |
-| [firmware name](#firmware-name)                   | :calling: (:construction_worker:) |
-| [firmware version](#firmware-version)             | :calling: (:construction_worker:) |
-| [firmware version name](#firmware-version-name)   | :calling: (:construction_worker:) |
-| [firmware manufacturer](#firmware-manufacturer)   | :calling: (:construction_worker:) |
-| [operating system](#operating-system)             | :calling: (:construction_worker:) |
-| [operating version](#operating-system-version)    | :calling: (:construction_worker:) |
-| [operating version name](#operating-system-version-name) | :calling: (:construction_worker:) |
 | [cpe](#cpe-software)                              | :construction_worker:   |
 | [hashes](#hashes)                                 | :construction_worker:   |
 | [purl](#purl)                                     | :construction_worker:   |
-| [sbom_urls](#sbom--urls)                          | :construction_worker:   |
+| [sbom_urls](#sbom-urls)                           | :construction_worker:   |
 | [x_generic_uris](#x_generic_uris)                 | :construction_worker:   |
 
-The fields for characterizing the software and respectively firmware are as follows:
+> The fields for characterizing the software are also used for  firmware and operating system respectively:
 
 ```bash
 software_name: "Debian"
@@ -281,17 +280,15 @@ It has to be distinguished between firmware and additional software by the flag 
 
 ### Software Name
 
-list of additional software
-Examples: OS like Linux or libraries in python.
+List of additional software on the device. Also, it could be an operating system like Linux.  
+Firmware (FW) of device is not installed software. The firmware interacts directly with the hardware.  
+The question here is whether an operating system (by definition) is not already too big to be firmware.  
+The boundaries will certainly become blurred in practice - so the firmware of a PLC could be described as its operating system.
 
 ### Software Version
 
 The name this particular version is given.  
 :information_source: There are plenty of valid notations for version schema. Therefore, there is no common standard.
-
-TODO
-
-In the latter case, it is recommended to use the version range specifier [vers](https://github.com/package-url/purl-spec/blob/version-range-spec/VERSION-RANGE-SPEC.rst).
 
 ### Software Version Name
 
@@ -300,37 +297,6 @@ Provides a textual description of most relevant characteristics of the version o
 ### Software Manufacturer
 
 Manufacturer of the software, not hardware. In case of firmware, this usually be the manufacturer of the device. @mrt
-
-### Firmware Name
-
-Firmware (FW) of device, not of installed software (flag must be set in NetBox). The firmware
-interacts directly with the hardware.
-
-### Firmware Version
-
-FW of device, not of installed software (flag must be set in NetBox).
-Hash for firmware SHA256 or SHA512 (preferred) would be appropriate. Otherwise use plan text such as  "Version 8.2.x"
-
-### Firmware Version Name
-
-FW of device, not of installed software (flag must be set in NetBox)
-Provides a textual description of most relevant characteristics of the version of the software
-
-### Firmware Manufacturer
-
-manufacturer of the firmware, not hardware. In case of firmware, this usually be the manufacturer of the device. @mrt
-
-### Operating System
-
-The question here is whether an operating system (by definition) is not already too big to be firmware. The boundaries will certainly become blurred in practice - so the firmware of a PLC could be described as its operating system.
-
-### Operating System Version
-
-Hash SHA256 or SHA512 (preferred) would be appropriate. Otherwise use plan text such as  "Version 8.2.x"
-
-### Operating System Version Name
-
-Provides a textual description of most relevant characteristics of the version of the operating system.
 
 ### CPE Software
 
@@ -347,7 +313,7 @@ Hash for firmware SHA256 or SHA512 (preferred) would be appropriate. Otherwise u
 
 The package URL (PURL) refers to a method for reliably identifying and locating software packages external to this specification [PURL](https://github.com/package-url/purl-spec).
 
-### SBOM  URLs
+### SBOM URLs
 
 The URL is a unique identifier. The content is secondary. The SBOMs might differ in format or depth of detail. Currently, [CSAF 2.0](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31335-full-product-name-type---product-identification-helper---sbom-urls) supported formats are SPDX, CycloneDX, and SWID.
 
