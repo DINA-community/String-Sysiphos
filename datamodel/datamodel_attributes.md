@@ -2,7 +2,7 @@
 
 ---
 
-[Overview](datamodel.md) | [Attributes](datamodel_attributes.md) | [Roles](datamodel_roles.md) | [Data model Mapping CSAF](datamodel_csaf.md) | [Data model Mapping NetBox](datamodel_netbox.md) | [Data model mapping IDTA](Discussion_datamodel.md)
+[Overview](datamodel.md) | [Attributes](datamodel_attributes.md) | [Roles](datamodel_roles.md) | [Data model Mapping CSAF](datamodel_csaf.md) | [Data model Mapping NetBox](datamodel_netbox.md) | [Data model mapping IDTA](datamodel_idta.md)
 
 ---
 
@@ -124,6 +124,7 @@ Useful for determining manufacturer, if not otherwise specified.
 ### Operation Status
 
 The device's operational status.
+> TODO list the possible values
 
 ### Owner
 
@@ -148,7 +149,8 @@ Boolean field added to the Device object. Specifies, if the device is used/provi
 
 ### Serial Number
 
-Text field for the serial number of the device. Helps to determine the affectedness. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.
+Unique combination of numbers and letters used to identify the device once it has been manufactured. [IDTA 2006](datamodel_idta#idta-02006-2-0)
+It helps to determine the affectedness by vulnerabilities. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.
 
 ### Site
 
@@ -200,7 +202,7 @@ It is usually family a model is assigned to.
 
 ### Device Type Description
 
-Additional, optional field for detailed information regarding the model description or purpose of this particular device type in the operation site.
+Attribute for detailed information regarding the model description or purpose of this particular device type in the operation site.
 It can be used as an additional reminder alongside the device type name (e.g. CPU 414-3 PN/DP central unit with 4 MB RAM...). Could be partially part of full_product_name_t/name in a CSAF document.
 
 ### Hardware Name
@@ -245,6 +247,7 @@ Not all observed CP have to be expected ones. This entry serves as baseline (tru
 
 A [service](https://netboxlabs.com/docs/netbox/en/stable/models/ipam/service/) represents a layer seven application available on a device or virtual machine. For example, a service might be created in NetBox to represent an HTTP server running on TCP/8000. Each service may optionally be further bound to one or more specific interfaces assigned to the selected device or virtual machine. As protocol there are the option UDP, TCP and SCTP.\
 The type of the protocol such as transport, application oder network, can be described using the description field.
+> Note: not observed communication partner protocol but expected one (source of state)
 
 ### Ports/Services
 
@@ -288,11 +291,11 @@ The boundaries will certainly become blurred in practice - so the firmware of a 
 ### Software Version
 
 The name this particular version is given.  
-:information_source: There are plenty of valid notations for version schema. Therefore, there is no common standard.
+:information_source: There are plenty of valid notations for version schema. Therefore, there is no common standard. The notation `Major Version`, `Minor Version`, `Revision` and `Build Number` is only one of many.
 
 ### Software Version Name
 
-Provides a textual description of most relevant characteristics of the version of the software
+Provides a textual description of most relevant characteristics of the version of the software.
 
 ### Software Manufacturer
 
