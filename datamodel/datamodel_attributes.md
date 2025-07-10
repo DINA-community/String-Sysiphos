@@ -78,7 +78,7 @@ This information might be relevant for legacy products when mapping against new 
 
 ### Device Description
 
-Field for detailed device description like purpose or specfic configuration.
+Field for detailed device description like purpose or specific configuration.
 
 ### Device key
 
@@ -137,7 +137,7 @@ The [rack](<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/rack/>) wit
 ### Role (primary)
 
 Useful for understanding context and function of the device in the network.  
-Note: Be aware, that with [NetBox 4.3](https://netboxlabs.com/docs/netbox/en/stable/release-notes/version-4.3/#hierarchical-device-roles-18245) roles can be child or parent (optional). For instance a firewall now can be a child of a gatway.
+Note: Be aware, that with [NetBox 4.3](https://netboxlabs.com/docs/netbox/en/stable/release-notes/version-4.3/#hierarchical-device-roles-18245) roles can be child or parent (optional). For instance a firewall now can be a child of a gateway.
 
 ### Role (secondary)
 
@@ -179,7 +179,44 @@ Is the asset physical or virtual.
 
 ## Device Type
 
-The device type can be represented with many attributes. Instead of using only one field, this data model uses several fields to record the product hierarchy. The discussion on [NetBox community](https://github.com/netbox-community/netbox/discussions/14125)\
+The device type can be represented with many attributes. Instead of using only one field, this data model uses several fields to record the product hierarchy.
+
+### Using a Hierarchy
+
+The preferred way to do this would be a recursive structure (see discussion on [NetBox community](https://github.com/netbox-community/netbox/discussions/14125)):
+
+```plaintext
+Manufacturer
+├── product family A
+│   └── product of family A
+│       ├── further specification
+│       │   └── final specification
+│       └── further specification
+│           └── ...
+├── product family B
+    └── product of family B
+        ├── further specification
+        │   └── ...
+        └── further specification
+            └── final specification 
+```
+
+- 1st describe the product family,
+- 2nd distinguish between different products of this family,
+- 3th distinguish between different specifications or sub products of this product.
+
+### Using a Plain Hierarchy
+
+| attribute |  DDDC |
+|:---:|:----:|
+| manufacturer | Rockwell Automation|
+| family |  ControlLogix |
+| model (number) | Rack K -10 Slot|
+| part_number | 1756-A10K|
+| hardware name | N/A |
+| hardware version | 1.0|
+| device type description | detailed specification of GPU and RAM |
+| | |
 
 | **Device Type**   | -    |
 |-|-|
@@ -198,7 +235,7 @@ Text field added to the Device Type object. It specifies the Common Platform Enu
 
 ### Device Family
 
-It is usually family a model is assigned to.
+It is usually a family a model (e.g. SIMATIC, SCALANCE) is assigned to.
 
 ### Device Type Description
 
@@ -222,7 +259,7 @@ and labeling of a product in respect to its being brought into the market.\[[IDT
 ### Model
 
 Model is the specification of device_family.
-A model number can be used as an article number. However, an article number is not always/necessarily a model number. Usually, all products have model numbers. Often they are listed on the sticker on the device besides the serial number.
+A model (number/variant) can be used as an article number. However, an article number is not always/necessarily a model number. Usually, all products have model numbers. Often they are listed on the sticker on the device besides the serial number.
 
 ### Part Number
 
