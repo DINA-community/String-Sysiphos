@@ -10,16 +10,10 @@
 
 | Task   | Status    |
 |-|-|
-| check attribute description of NetBox| ok|
 | data collection (tables) review by K. H.| open|
 | CSAF | full product name|
-| CSAF | Mapping klar mit NetBox kenntlich machen|
-| Field und Action trennen | open |
-| Link zu Attributen in allen Dokumenten| open |
-
-- add purpose to each attribute
-- purpose: for IDS, CSAF, vulnerability, critical operation
-- collection: passive (with DDDC and DeviceMgt) - marketing
+| Attribute | purpose not field object|
+| purpose| IDS, CSAF, vulnerability, critical operation|
 
 ### Legend for possible sources
 
@@ -66,7 +60,7 @@ This attribute provides frequency for how often backups are performed (e.g., dai
 
 ### Baseline Image
 
-Useful to know if there is a particular known-good image that the OS installation was based on, aiding in post-incident recovery.
+It is useful to know if there is a particular known-good (baseline) image that the OS installation was based on, aiding in post-incident recovery.
 
 ### Criticality
 
@@ -78,7 +72,7 @@ This information might be relevant for legacy products when mapping against new 
 
 ### Device Description
 
-Field for detailed device description like purpose or specific configuration.
+Detailed device description like purpose or specific configuration.
 
 ### Device key
 
@@ -86,12 +80,12 @@ Unique identifier assigned to the asset by the organization.
 
 ### Device name
 
-Text field containing the descriptive name of the device.
-Potentially useful for understanding context and function of the device in the network if included in host naming conventions.
+A device usually has a descriptive name given by the manufacturer, integrator or operator. It can be
+potentially useful for understanding context and function of the device in the network if included in host naming conventions.
 
 ### Exposure
 
-Selection added to the Device Type object. Specifies the grade of exposure to other networks. Valid values are:
+Specifies the grade of exposure to other networks of a device. Valid values are:
 
 - Small:  The asset is in a highly isolated and controlled zone. There are no connections from this cyber asset’s zone to or from a zone with lower trust.
 - Indirect: The asset has no direct access to a zone with lower trust, but other cyber assets in this cyber asset’s zone are accessible to or from a zone with lower trust.
@@ -105,16 +99,17 @@ see [Device Name](#device-name)
 ### Hypervisor
 
 If applicable, this attribute provides context in what type of hypervisor is running the VM.  
-*This attribute needs further specification*
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ### Hypervisor (Location within)
 
 This attribute provides context on where the VM resides within the hypervisor.
-*This attribute needs further specification*
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ### Location
 
-GPS coordinates of the device for geo location [NetBox](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/location/).
+Racks and devices can be grouped by location within a site. A location may represent a floor, room, cage, or similar organizational unit. Locations can be nested to form a hierarchy. For example, you may have floors within a site, and rooms within a floor. [NetBox](https://netboxlabs.com/docs/netbox/models/dcim/location/)
+Besides a text description, GPS coordinates of the device for geo location can be used.
 
 ### MAC address
 
@@ -128,34 +123,39 @@ The device's operational status.
 
 ### Owner
 
-Useful in understanding who owns or is responsible for the machine.
+This attribute is useful in understanding who owns or is responsible for the machine.
 
 ### Rack
 
-The [rack](<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/rack/>) within which this device is installed (optional).
+The [rack](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/rack/) within which this device is installed.
 
 ### Role (primary)
 
 Useful for understanding context and function of the device in the network.  
-Note: Be aware, that with [NetBox 4.3](https://netboxlabs.com/docs/netbox/en/stable/release-notes/version-4.3/#hierarchical-device-roles-18245) roles can be child or parent (optional). For instance a firewall now can be a child of a gateway.
+> Note: Be aware, that with [NetBox 4.3](https://netboxlabs.com/docs/netbox/en/stable/release-notes/version-4.3/#hierarchical-device-roles-18245) roles can be child or parent (optional). For instance a firewall now can be a child of a gateway.
 
 ### Role (secondary)
 
-Multiple objects field added to the Device object. It should be possible to assign multiple Device Roles to a device. Therefore, this custom field enables the user to designate multiple Device Roles for a device using this feature. Additionally, the existing ’Role’ attribute of a device should be understood as the primary role of the device. For instance, a primary role of a S7-1200 can be PLC and a secondary role a bus coupler.
+There can be multiple additional roles for a device. For instance, a primary role of a S7-1200 can be PLC and a secondary role a bus coupler.
 
 ### Safety
 
-Boolean field added to the Device object. Specifies, if the device is used/provides safety functionality.
+This attribute specifies if the device is used/provides safety functionality.
 
 ### Serial Number
 
-Unique combination of numbers and letters used to identify the device once it has been manufactured. [IDTA 2006](datamodel_idta#idta-02006-2-0)
+Unique combination of numbers and letters used to identify the device once it has been manufactured [IDTA 2006](datamodel_idta#idta-02006-2-0).
 It helps to determine the affectedness by vulnerabilities. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.
 
 ### Site
 
 Specifies the name of the site in which the device is located.
-<https://netboxlabs.com/docs/netbox/en/stable/models/dcim/site/>
+
+[NetBox Definition](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/site/):
+
+``` text
+How you choose to employ sites when modeling your network may vary depending on the nature of your organization, but generally a site will equate to a building or campus. For example, a chain of banks might create a site to represent each of its branches, a site for its corporate headquarters, and two additional sites for its presence in two colocation facilities.
+```
 
 ### Time Source
 
@@ -163,7 +163,7 @@ This attribute provides clarity on how an asset synchronizes its operations (e.g
 
 ### Time Zone
 
-Useful when conducting user behavior analysis where timelines come into play (local time zone).
+This attribute can be useful when conducting user behavior analysis where timelines come into play (local time zone).
 
 ### User Accounts
 
@@ -171,19 +171,24 @@ Useful in knowing which user account is expected to be most active, or if it’s
 
 ### VLAN
 
-Useful for understanding its grouping on the network.
+Useful for understanding its grouping on the network.  
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ### Virtual
 
-Is the asset physical or virtual.
+Is the asset physical or virtual.  
+
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ## Device Type
 
-The device type can be represented with many attributes. Instead of using only one field, this data model uses several fields to record the product hierarchy.
+The device type can be represented with many attributes. Instead of using only one field, this data model uses several fields to record the product.
 
 ### Using a Hierarchy
 
-The preferred way to do this would be a recursive structure (see discussion on [NetBox community](https://github.com/netbox-community/netbox/discussions/14125)):
+The preferred way to do this would be a recursive structure (see discussion on [NetBox community](https://github.com/netbox-community/netbox/discussions/14125)). In this way, the different description in depth of manufacturers could be handled in a clear structure which is similar to the CSAF:
+
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ```plaintext
 Manufacturer
@@ -206,6 +211,10 @@ Manufacturer
 - 3th distinguish between different specifications or sub products of this product.
 
 ### Using a Plain Hierarchy
+
+Using a fix number of attributes to describe the device type, the preferred structure is this in context to CSAF and NetBox:
+
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 | attribute |  DDDC |
 |:---:|:----:|
@@ -231,25 +240,31 @@ Manufacturer
 
 ### CPE
 
-Text field added to the Device Type object. It specifies the Common Platform Enumeration (CPE) string of the device type.
+It specifies the Common Platform Enumeration (CPE) string of the device type.
 
 ### Device Family
 
-It is usually a family a model (e.g. SIMATIC, SCALANCE) is assigned to.
+It is usually a family a model (e.g. SIMATIC, SCALANCE) is assigned to.  
+:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ### Device Type Description
 
 Attribute for detailed information regarding the model description or purpose of this particular device type in the operation site.
-It can be used as an additional reminder alongside the device type name (e.g. CPU 414-3 PN/DP central unit with 4 MB RAM...). Could be partially part of full_product_name_t/name in a CSAF document.
+It can be used as an additional reminder alongside the device type name (e.g. CPU 414-3 PN/DP central unit with 4 MB RAM...).
+
+Also, it could be partially part of full_product_name_t/name in a CSAF document.
 
 ### Hardware Name
 
-Further specification of device type. It is usually the product name of manufacturer like `S7-1515f`? @mrt
+Further specification of device type. It is usually the product name of manufacturer like `S7-1515f`? @mrt  
+:question: *This attribute needs revision*
 
 ### Hardware Version
 
 Point of purchase (may not be manufacturer)
 Multiple products exist in multiple hardware versions (due to PCB layout changes or chip shortages or hardware improvements), which can have impact on the software that can be used with the device.
+
+:question: *This attribute needs revision*
 
 ### Manufacturer of Device Type
 
@@ -266,6 +281,8 @@ A model (number/variant) can be used as an article number. However, an article n
 Part number specifies the stock keeping unit (SKU). It can be the same as model number (NetBox:
 part_number), especially when seller is the vendor itself. In [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31337-full-product-name-type---product-identification-helper---skus) it is mentioned that the sku sometimes called "item number", "article number" or "product number".
 
+:question: *This attribute needs revision.*
+
 ## Service
 
 By services the interaction within the IT/OT and outside the perimeter is documented.
@@ -278,17 +295,17 @@ By services the interaction within the IT/OT and outside the perimeter is docume
 
 ### Communication partner - IP
 
-Not all observed CP have to be expected ones. This entry serves as baseline (truth of state) for IDS
+Not all observed CP have to be expected ones. This entry serves as baseline (truth of state) for intrusion detection systems (IDS).
 
 ### Protocol/Services
 
-A [service](https://netboxlabs.com/docs/netbox/en/stable/models/ipam/service/) represents a layer seven application available on a device or virtual machine. For example, a service might be created in NetBox to represent an HTTP server running on TCP/8000. Each service may optionally be further bound to one or more specific interfaces assigned to the selected device or virtual machine. As protocol there are the option UDP, TCP and SCTP.\
+A [service](https://netboxlabs.com/docs/netbox/en/stable/models/ipam/service/) represents a layer seven application available on a device or virtual machine. For example, a service might be created in NetBox to represent an HTTP server running on TCP/8000. Each service may optionally be further bound to one or more specific interfaces assigned to the selected device or virtual machine. As protocol there are the option UDP, TCP and SCTP.  
 The type of the protocol such as transport, application oder network, can be described using the description field.
 > Note: not observed communication partner protocol but expected one (source of state)
 
 ### Ports/Services
 
-The port number of a service can be used to determine the protocol type if unknown as well as a possible role of the device.\
+The port number of a service can be used to determine the protocol type if unknown as well as a possible role of the device.
 
 ## Software
 
@@ -316,7 +333,7 @@ software_version_name: "Bookworm"
 
 ### Software Type
 
-It has to be distinguished between firmware and additional software by the flag "is firmware".
+It has to be distinguished between firmware and additional software. This can be achieved by the flag "is firmware".
 
 ### Software Name
 
@@ -325,6 +342,8 @@ Firmware (FW) of device is not installed software. The firmware interacts direct
 The question here is whether an operating system (by definition) is not already too big to be firmware.  
 The boundaries will certainly become blurred in practice - so the firmware of a PLC could be described as its operating system.
 
+:question: *This attribute needs revision.*
+
 ### Software Version
 
 The name this particular version is given.  
@@ -332,22 +351,28 @@ The name this particular version is given.
 
 ### Software Version Name
 
-Provides a textual description of most relevant characteristics of the version of the software.
+This attribute provides a textual description of most relevant characteristics of the version of the software.
 
 ### Software Manufacturer
 
 Manufacturer of the software, not hardware. In case of firmware, this usually be the manufacturer of the device. @mrt
+
+:question: *This attribute needs revision.*
 
 ### CPE Software
 
 It specifies the Common Platform Enumeration (CPE). Text field added to the Software/Firmware/OS (mrt ?) object. CPE attribute refers to a method for naming platforms external to this specification (see [CPE23](https://dx.doi.org/10.6028/NIST.IR.7695) for details).
 Note: CPE 2.2 and 2.3 version are not clear regarding HW or FW.
 
+:question: *This attribute needs revision. Also check in Netbox plugin*
+
 ### Hashes
 
 Hashes should be used for firmware and applications software.
 Tuple [(hash(alg, file), file)], sind ca. 7 Hashwerte @mrt explain
 Hash for firmware SHA256 or SHA512 (preferred) would be appropriate. Otherwise use plan text such as  "Version 8.2.x"
+
+:question: *This attribute needs revision.*
 
 ### Purl
 
@@ -360,3 +385,5 @@ The URL is a unique identifier. The content is secondary. The SBOMs might differ
 ### x_generic_uris
 
 Unique name given by the vendor.The TC provides some [examples](https://github.com/oasis-tcs/csaf/issues/649). Hardware and software, can have one or more x_generic_uri. However, an x_generic_uri can only belong to one hardware resp. software.
+
+:question: *This attribute needs revision. Also write out TC*
