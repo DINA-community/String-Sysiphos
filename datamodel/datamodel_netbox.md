@@ -24,8 +24,8 @@ This show how the data model is placed and the status of implementation.
 | **Device** |  |  |  | |
 |Article Number         | DeviceType:part_number | custom |  delete   | -|
 | [Device Name](datamodel_attributes.md#device-name) | [Device:name](https://netboxlabs.com/docs/netbox/models/dcim/device/#name) | core | - |Potentially useful for understanding context and function of the device in the network if included in host naming conventions |
-| [Device Role (primary)](datamodel_attributes.md#role-primary)  | [DeviceRole:name](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/devicerole#name) | core| [role.yml](https://github.com/DINA-community/String-Sysiphos/blob/data_model/datamodel/device_roles.yml)| useful for understanding context and function of the device in the network |
-|[Device Role (secondary)](datamodel_attributes.md#role-secondary)| DeviceRole:name_minor    | custom| -| multiple objects field |
+| [Device Role (primary)](datamodel_attributes.md#role-primary)  | [DeviceRole:name](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/devicerole#name) | core| :hammer:[role.yml](https://github.com/DINA-community/String-Sysiphos/blob/data_model/datamodel/device_roles.yml)| useful for understanding context and function of the device in the network |
+|[Device Role (secondary)](datamodel_attributes.md#role-secondary)| DeviceRole:name_minor    | custom| :hammer:| multiple objects field |
 |[Serial number](datamodel_attributes.md#serial-number)       | [Device: serial](https://netboxlabs.com/docs/netbox/en/stable/models/dcim/device/#serial-number)             | core |- | specific serial number of device |
 |[Safety](datamodel_attributes.md#safety)                 | Device:safety            | custom |- | device is used for safety functionality. Information also in CVSS available. |
 |[Exposure](datamodel_attributes.md#exposure) | Device:exposure | custom | - |exposure to other network zones |
@@ -37,7 +37,7 @@ This show how the data model is placed and the status of implementation.
 |[Device Family](datamodel_attributes.md#device-family)          | [DeviceType:device_family]((https://netboxlabs.com/docs/netbox/en/stable/models/dcim/devicetype/)) | custom | - |usually family a model is assigned to |
 |[Model Number](datamodel_attributes.md#model)         | DeviceType:model  | core | - |Model number given by the manufacturer. One specification of a device_family like 6RA8096-4MV62-0AA0|
 |[SKU](datamodel_attributes.md#part-number)                  | DeviceType:part_number   | core |-| SKU (stock keeping unit) also known as part number |
-|[Device Type Description](datamodel_attributes.md#device-type-description)     | DeviceType:device_description | now core | adapt DDDC-plugin |additional, optional field for detailed device description. Also it can be used for CSAF matchting as full produce name|
+|[Device Type Description](datamodel_attributes.md#device-type-description)     | DeviceType:device_description | core | :hammer: change custom field |additional, optional field for detailed device description. Also it can be used for CSAF matching as full produce name|
 |[Hardware Name](datamodel_attributes.md#hardware-name)           |DeviceType:hardware_name  | custom |-| HW  of device, not of installed software (flag must be set in NetBox) |
 |[Hardware version](datamodel_attributes.md#hardware-version)        |DeviceType:hardware_version | custom|-| Hardware version of the product; use "N/A" if just one version was build; use "unknown" if not known. The notations of the manufacturer should not be altered. |
 | **Software** |  |  |  ||

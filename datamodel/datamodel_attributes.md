@@ -8,21 +8,14 @@
 
 ## Introduction
 
-| Task   | Status    |
-|-|-|
-| data collection (tables) review by K. H.| open|
-| CSAF | full product name|
-| Attribute | purpose not field object|
-| purpose| IDS, CSAF, vulnerability, critical operation|
+> Update coming soon.
 
 ### Legend for possible sources
 
-```markdown
 * :computer: = PCAP
 * :mag: = DeviceMgt
 * :calling: = Active requests to device/system
 * :construction_worker:= Manual by user
-```
 
 ## Device
 
@@ -87,10 +80,10 @@ potentially useful for understanding context and function of the device in the n
 
 Specifies the grade of exposure to other networks of a device. Valid values are:
 
-- Small:  The asset is in a highly isolated and controlled zone. There are no connections from this cyber asset’s zone to or from a zone with lower trust.
-- Indirect: The asset has no direct access to a zone with lower trust, but other cyber assets in this cyber asset’s zone are accessible to or from a zone with lower trust.
-- Direct: The asset is directly accessible to or from a zone with lower trust.
-- Unknown: Value if category for exposure is unknown.  
+* Small:  The asset is in a highly isolated and controlled zone. There are no connections from this cyber asset’s zone to or from a zone with lower trust.
+* Indirect: The asset has no direct access to a zone with lower trust, but other cyber assets in this cyber asset’s zone are accessible to or from a zone with lower trust.
+* Direct: The asset is directly accessible to or from a zone with lower trust.
+* Unknown: Value if category for exposure is unknown.  
 
 ### Hostname
 
@@ -103,7 +96,7 @@ If applicable, this attribute provides context in what type of hypervisor is run
 
 ### Hypervisor (Location within)
 
-This attribute provides context on where the VM resides within the hypervisor.
+This attribute provides context on where the VM resides within the hypervisor.  
 :question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ### Location
@@ -119,7 +112,14 @@ Useful for determining manufacturer, if not otherwise specified.
 ### Operation Status
 
 The device's operational status.
-> TODO list the possible values
+
+* Offline
+* Active
+* Planned
+* Staged
+* Failed
+* Inventory
+* Decommissioning
 
 ### Owner
 
@@ -206,9 +206,9 @@ Manufacturer
             └── final specification 
 ```
 
-- 1st describe the product family,
-- 2nd distinguish between different products of this family,
-- 3th distinguish between different specifications or sub products of this product.
+* 1st describe the product family,
+* 2nd distinguish between different products of this family,
+* 3th distinguish between different specifications or sub products of this product.
 
 ### Using a Plain Hierarchy
 
