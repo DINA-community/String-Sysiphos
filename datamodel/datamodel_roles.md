@@ -20,103 +20,126 @@ Another example may be Network Switches, where you may want to segregate the Dev
 
 Also, this feature can be used to group device roles for machine learning approach when not enough data is provided for a single device role but for a group.  
 
->There are open task in the corresponding `device_roles.yml`:
+> There are open task in the corresponding `device_roles.yml`:
 >
->- color in relation to parent role
->- reason fields that contains open questions to be addressed
+> - color in relation to parent role
+> - reason fields that contains open questions to be addressed
+
+add reason for group roles
+
+|Sign | Action |
+|-|-|
+|:question:| group not sure, need reason ❓ |
+|:exclamation: | need (clearer) description ❗|
+| :skull: | intended group wrong 💀 |
+|:no_entry_sign:|role not helpful 🚫|
+|:white_check_mark:| ready for revision ✅|
+
+set color to group color
+every role has all attributes
+order:
+name, slug, parent, description, reason, color, vm_role
 
 ### Role Structure
 
-```text
+```markdown
 Primary device role
 ├── Field device
-│   └── Actuator
-│   └── IIoT
-│   └── Physical Sensor
-│   └── Scanner
-│   └── VFD
+│   ├── Actuator ✅
+│   ├── IIoT ❓
+│   ├── Physical Sensor ✅
+│   ├── NFC Reader ✅
+│   └── VFD ✅
 ├── Controller
-│   └── CNC
-│   └── IED
-│   └── PLC
-│   └── RTU
-├── IT-Server
-│   └── Communication
-│       └── Mail server
-│       └── Proxy server
-│       └── RTC
-│       └── VPN server
-│       └── Web server
-│   └── Storage
-│       └── Cloud server
-│       └── Data server
-│       └── File server
-│       └── Historian
-│       └── Media server
-│       └── NAS
-│   └── Service A
-│       └── Active directory
-│       └── Application server
-│       └── Authentication server
-│   └── Management
-│       └── BMS
-│       └── Collaboration server
-│       └── PIMS
-│       └── PLM
-│       └── SIEM
-│       └── VCS
-│   └── Service B
-│       └── Hypervisor
-│       └── Load balancer
-│       └── NTP server
-│       └── Virtual Machine Server
-│   └── Service C
-│       └── DHCP server
-│       └── DNS server
-│       └── Domain controller
-├── Network Structure
-│   └── Access point
-│   └── Bridge
-│   └── Gateway-Coupler
-│   └── Hub
-│   └── Modem
-│   └── Repeater
-│   └── Switch L2
-│   └── Switch unspecified
+│   ├── CNC ✅
+│   ├── IED ✅
+│   ├── PLC ✅
+│   └── RTU ✅
+├── IT-Server✅
+│   ├── Communication ❗
+│   │   ├── Mail server ❗
+│   │   ├── real time communication server ❗
+│   │   ├── VPN server✅
+│   │   ├── Web server❗
+│   ├── Data Storage
+│   │   ├── Cloud server ❗
+│   │   ├── Data server 🚫
+│   │   ├── File server ❗
+│   │   ├── Historian✅
+│   │   ├── Media server ❗
+│   │   └── NAS ✅
+│   ├── Administration ✅
+│   │   ├── Active directory
+│   │   ├── Application server ❓❗
+│   │   ├── Authentication server ❓❗
+│   │   ├── Domain controller ❓❗
+│   │   └── SIEM ❓
+│   ├── Management ❗
+│   │   ├── BMS ❓❗
+│   │   ├── Collaboration server ❓❗
+│   │   ├── PIMS ✅
+│   │   ├── PLM ✅
+│   │   └── VCS ✅
+│   ├── Virtual Host Device ❓
+│   │   ├── Hypervisor ❗
+│   │   └── Virtual Machine Server ❗
+│   └── Network Service ❗
+│       │── DHCP server ✅
+│       │── DNS server ✅
+│       │── Load balancer ❗
+│       │── NTP server ✅
+├── Network Structure ❗
+│   ├── Access point ✅
+│   ├── Bridge ✅
+│   ├── Hub ✅
+│   ├── Network Proxy ✅
+│   ├── Repeater ❗
+│   ├── Switch L2 ✅
+│   ├── Switch unspecified ✅
+│   ├── KVM ❓
+│   └── Gateway
+│       │── Router ✅
+│       │── Switch L3 ✅
+│       │── Firewall ✅
+│       │── Protocol-Coupler ✅
+│       │── Modem ❗
 ├── SCADA
-│   └── BAS
-│   └── DCS
-│   └── PCS
+│   ├── Building Automation System ✅
+│   │    ├── HVAC ✅
+│   │    ├── Lighting control ✅
+│   │    ├── Access Control
+│   │       │── Camera ❓
+│   │       │── Electronic access control ✅
+│   ├── DCS ✅
+│   ├── PCS ✅
 ├── OT-Client
-│   └── EWS
-│   └── HMI
-│   └── SCADA Client
-│   └── Workstation
+│   ├── EWS ✅
+│   ├── HMI ✅
+│   ├── SCADA Client ❓
+│   └── Workstation ❗
 ├── Office
-│   └── KVM switch
-│   └── Photocopier
-│   └── Printer
-│   └── Server
-│       └── printer server
-│   └── Telephony
-│       └── Fax
-│       └── Phone
-├── Building automation
-│   └── HVAC
-│   └── Lighting controls
-│   └── Access Control
-│       └── Camera
-│       └── Electronic access control
-├── Connected Devices
-│   └── Camera
-│   └── IoT
-│   └── Kiosk
-├── Monitoring
-│   └── IDS   
-│   └── IPS
-│   └── Network sensor
-├── Gateway
-│   └── Router
-│   └── Switch L3
-├── Unspecified
+│   ├── Photocopier ✅
+│   ├── Printer ✅
+│   ├── print server ❓
+│   └── Telephony ✅
+│       │── Fax ✅
+│       │── Phone ✅
+├── Connected Device ✅
+│   ├── IoT ✅
+│   └── Kiosk ✅
+├── Monitoring ✅
+│   ├── IDS ✅   
+│   ├── IPS ✅
+│   ├── Network sensor ✅
+│   └── Honeypot ✅
+├── Unspecified ✅
+│   └── MES ❓
 ```
+
+### Role Color
+
+Note that the color of each device can be set using the `lazy.py` script wit the `set_color` function. The color scheme can be configured via the `device_roles_colortemplate.json` file. The basic assumption is:
+
+- the main device roles have their own color
+- the children of a parent have the same color
+- the offspring color is getting darker

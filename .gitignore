@@ -169,3 +169,5 @@ cython_debug/
 #.idea/
 *.xlsx
 device_roles_update_*.yml
+.vscode
+device_roles_colored*.yaml
