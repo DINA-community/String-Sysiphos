@@ -168,4 +168,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 *.xlsx
-datamodel/
+device_roles_update_*.yml
+.vscode
+device_roles_colored*.yaml

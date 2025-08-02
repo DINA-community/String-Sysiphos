@@ -1,0 +1,155 @@
+{
+    "it-server": {
+        "color_name": "PINK",
+        "color": "#FFC0CB",
+        "darker": [
+            "#FF99A4",
+            "#FF7380",
+            "#FF4D5C",
+            "#E63946",
+            "#C71585"
+        ],
+        "children": "#FF99A4",
+        "data-storage": "#FF99A4",
+        "administration": "#FF7380",
+        "management": "#FF4D5C",
+        "virtual-host-device": "#E63946",
+        "network-service": "#C71585",
+        "communication": "#C71585"
+    },
+    "network-structure": {
+        "color_name": "Green",
+        "color": "#00FF00",
+        "darker": [
+            "#00CC00",
+            "#00A000",
+            "#008000",
+            "#006400",
+            "#228B22"
+        ],
+        "children": "#00CC00"
+    },
+    "gateway": {
+        "color_name": "Light Green",
+        "color": "#90EE90",
+        "darker": [
+            "#7AD17A",
+            "#64B564",
+            "#4E994E",
+            "#387D38",
+            "#556B2F"
+        ],
+        "children": "#7AD17A"
+    },
+    "scada": {
+        "color_name": "Amber",
+        "color": "#FFBF00",
+        "darker": [
+            "#E6AC00",
+            "#CC9900",
+            "#B38600",
+            "#996600",
+            "#CC5500"
+        ],
+        "children": "#E6AC00",
+        "building-automation-system": "#CC9900",
+        "access-control": "#B38600"
+    },
+    "office": {
+        "color_name": "Indigo",
+        "color": "#4B0082",
+        "darker": [
+            "#3F0070",
+            "#33005D",
+            "#27004A",
+            "#1B0037",
+            "#191970"
+        ],
+        "children": "#3F0070",
+        "telephony": "#33005D"
+    },
+    "monitoring": {
+        "color_name": "Purple",
+        "color": "#800080",
+        "darker": [
+            "#6F006F",
+            "#5E005E",
+            "#4D004D",
+            "#3C003C",
+            "#4B0082"
+        ],
+        "children": "#6F006F"
+    },
+    "ot-server": {
+        "color_name": "Cyan",
+        "color": "#00FFFF",
+        "darker": [
+            "#00CCCC",
+            "#00AAAA",
+            "#008888",
+            "#006666",
+            "#008080"
+        ],
+        "children": "#00CCCC"
+    },
+    "unspecified": {
+        "color_name": "Dark Red",
+        "color": "#8B0000",
+        "darker": [
+            "#7A0000",
+            "#660000",
+            "#520000",
+            "#3D0000",
+            "#800000"
+        ],
+        "children": "#7A0000"
+    },
+    "connected-device": {
+        "color_name": "Fuchsia",
+        "color": "#FF00FF",
+        "darker": [
+            "#CC00CC",
+            "#AA00AA",
+            "#880088",
+            "#660066",
+            "#8B008B"
+        ],
+        "children": "#CC00CC"
+    },
+    "controller": {
+        "color_name": "Light Blue",
+        "color": "#ADD8E6",
+        "darker": [
+            "#96C3D4",
+            "#7FADC3",
+            "#6898B1",
+            "#5273A0",
+            "#4682B4"
+        ],
+        "children": "#96C3D4"
+    },
+    "ot-client": {
+        "color_name": "Grey",
+        "color": "#BEBEBE",
+        "darker": [
+            "#A0A0A0",
+            "#808080",
+            "#606060",
+            "#404040",
+            "#333333"
+        ],
+        "children": "#A0A0A0"
+    },
+    "field-device": {
+        "color_name": "Honey Yellow",
+        "color": "#FFD700",
+        "darker": [
+            "#E6C000",
+            "#CCA900",
+            "#B39200",
+            "#997B00",
+            "#B8860B"
+        ],
+        "children": "#E6C000"
+    }
+}
