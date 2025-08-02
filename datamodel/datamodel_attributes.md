@@ -8,7 +8,8 @@
 
 ## Introduction
 
-> Update coming soon.
+An OT asset inventory—an organized, regularly updated list of an organization’s OT systems, hardware, and software—is foundational to designing a modern defensible architecture because without an inventory, organizations do not know what they have and what should be secured and protected.
+Successful asset management requires understanding what data to capture for each asset in an inventory. This page shows recommended asset inventory fields and potential benefits to including them. Also, possible sources how to collect this information is given at the beginning of each section. The sections are [`device`](#device), [`device type`](#device-type) and [`software`](#software).
 
 ### Legend for possible sources
 
@@ -23,6 +24,7 @@
 |-                           |  -                                    |
 | [backup](#backup-frequency--type)                             | :construction_worker:                 |
 | [baseline image](#baseline-image)                             | :construction_worker:                 |
+| [configuration](#configuration)                               | :construction_worker:                 |
 | [criticality](#criticality)                                   | :construction_worker:                 |
 | [date of manufacture](#date-of-manufacture)                   | :construction_worker:                 |
 | [device key](#device-key)                                     | :construction_worker:                 |
@@ -39,6 +41,7 @@
 | [role primary](#role-primary)                                 | :construction_worker: (:mag:)         |
 | [role secondary](#role-secondary)                             | :construction_worker:                 |
 | [safety](#safety)                                             | :construction_worker:                 |
+| [security level](#security-level)                                     |               |
 | [serial number](#serial-number)                               | :construction_worker: (:calling: )    |
 | [site](#site)                                                 | :construction_worker: (:computer:)    |
 | [time source](#time-source)                                   | :construction_worker: (:computer:)    |
@@ -55,6 +58,10 @@ This attribute provides frequency for how often backups are performed (e.g., dai
 
 It is useful to know if there is a particular known-good (baseline) image that the OS installation was based on, aiding in post-incident recovery.
 
+### Configuration
+
+It is a generic term. It could be a ip config, a changelog for the device attributes or even the configuration of communication partners in further detail.
+
 ### Criticality
 
 Enables device to be managed based on its operational role, safety impact, and/or exposure to risks.
@@ -65,7 +72,7 @@ This information might be relevant for legacy products when mapping against new 
 
 ### Device Description
 
-Detailed device description like purpose or specific configuration.
+Detailed device description like purpose or specific [configuration](#configuration).
 
 ### Device key
 
@@ -73,7 +80,7 @@ Unique identifier assigned to the asset by the organization.
 
 ### Device name
 
-A device usually has a descriptive name given by the manufacturer, integrator or operator. It can be
+A device usually has a descriptive name given by the manufacturer, integrator or operator ("Well known name"). It can be
 potentially useful for understanding context and function of the device in the network if included in host naming conventions.
 
 ### Exposure
@@ -138,9 +145,17 @@ Useful for understanding context and function of the device in the network.
 
 There can be multiple additional roles for a device. For instance, a primary role of a S7-1200 can be PLC and a secondary role a bus coupler.
 
+### Role of Responsible Person
+
+A role such as system operator.
+
 ### Safety
 
 This attribute specifies if the device is used/provides safety functionality.
+
+### Security level
+
+The security level is determined by a risk analysis. Therefore, relevant information like exposure, possible safety function and role of the device should be collected systematically for all devices.
 
 ### Serial Number
 
@@ -237,6 +252,7 @@ Using a fix number of attributes to describe the device type, the preferred stru
 | [manufacturer](#manufacturer-of-device-type)          | :mag:                     |
 | [model](#model)                                       | :calling:                 |
 | [part number](#part-number)                           | :calling:                 |
+| [patch cycle](#patch-cycle)                           | :construction_worker:     |
 
 ### CPE
 
@@ -282,6 +298,10 @@ Part number specifies the stock keeping unit (SKU). It can be the same as model 
 part_number), especially when seller is the vendor itself. In [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#31337-full-product-name-type---product-identification-helper---skus) it is mentioned that the sku sometimes called "item number", "article number" or "product number".
 
 :question: *This attribute needs revision.*
+
+### Patch cycle
+
+The regular patch cycle of this kind of device type.
 
 ## Service
 

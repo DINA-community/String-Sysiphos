@@ -10,7 +10,9 @@ import json
 import re
 import os
 from typing import Final
+from collections import defaultdict
 import pandas as pd
+import numpy as np
 import yaml
 from loguru import logger
 
@@ -20,6 +22,7 @@ logger.add("lazy.log", format="{time}-{message}")
 
 DEVICE_ROLE: Final[str] = 'device_roles.yml'
 COLOR_TEMPLATE: Final[str] = 'device_roles_colortemplate.json'
+COLOR_CSV: Final[str] = 'color.csv'
 PATH_ROLE: Final[str] = os.path.join(
     os.path.dirname(os.getcwd()), DEVICE_ROLE)
 PATH_COLOR: Final[str] = os.path.join(os.getcwd(), COLOR_TEMPLATE)
@@ -28,8 +31,95 @@ PATH_DATA: Final[str] = os.path.join(
     os.path.dirname(os.getcwd()), 'datamodel_roles.md')
 
 
+def set_role_color_by_csv_mark():
+    """Create the device role yaml according to the markdown file.
+    Use the csv file and in markdown colors indicated by '::<colorname>' 
+
+    Input options:
+        - set color by adding "::<colorname>" behind device role
+          Note: if the color name is not a main color in csv, the color will be ignored
+        - set color in csv file in column "choice" by <device_role>
+
+    Color fill logic:
+        - main roles get a different color each
+        - children get the same darker tone of that color
+        - the children of a child get the same darker tone 
+
+    Warning: Errors are not neither logged or prevented by wrong input data
+    """
+    # get data color of csv
+    df_cl = pd.read_csv(COLOR_CSV, delimiter=";",
+                        dtype=defaultdict(lambda: str))
+    df_cl.darker = df_cl.darker.str.split(",")
+    df_cl[['color_name', 'choice']] = df_cl[[
+        'color_name', 'choice']].apply(lambda col: col.str.lower())
+    df_cl.color_name = df_cl.color_name.replace(r"\s", "-", regex=True)
+    df_cl.loc[df_cl.choice.dropna().index, 'notes'] = "set by csv file"
+
+    # get roles and possible color settings from markdown
+    df_str = get_structure()
+    df_str[['name', 'parent']] = df_str[[
+        'name', 'parent']].apply(lambda col: col.str.lower())
+    pre_mrk = pd.DataFrame(data=df_str.loc[df_str.name.str.contains(
+        "::", na=False), 'name'].str.split("::", expand=True))
+    try:
+        pre_mrk.columns = ['role', 'color']
+        # update df_cl list with markdown color settings
+        for ind in pre_mrk.index:
+            df_cl.choice[df_cl.color_name == pre_mrk.loc[ind]
+                        ['color']] = pre_mrk.loc[ind]['role']
+            df_cl.notes[df_cl.color_name == pre_mrk.loc[ind]
+                        ['color']] = "markdown color"
+    except ValueError:
+        logger.info("No  color was set in markdown file.")
+    df_str.name = df_str.name.replace(r"::.*", "", regex=True)
+    df_str.parent = df_str.parent.replace(r"::.*", "", regex=True)
+
+
+    # Create a dictionary to map color to choice
+    color_to_choice = dict(zip(df_cl['choice'], df_cl['color']))
+    color_to_choice.pop(np.nan, None)
+    # set color from merged color table
+    df_str['color'] = df_str['name'].map(
+        lambda c: color_to_choice.get(c, np.nan))
+
+    # update color list
+    color_to_choice = list(df_cl.loc[df_cl.choice.isna(), 'color'])
+
+    # set level 0
+    df_str.loc[(df_str.level == 0) & (df_str.color.isna()), 'color'] = df_str.loc[(
+        df_str.level == 0) & (df_str.color.isna())]['color'].map(lambda c: color_to_choice.pop(0))
+
+    # update df_cl
+    df_cl.choice = df_cl.color.map(
+        lambda c: df_str.loc[df_str.color == c, 'name'].iloc[0])
+    df_cl.notes = df_cl.notes.fillna("set in color function")
+
+    # set level 1 ... n
+    level = 1
+    for level in range(1, df_str.level.max()+1):
+        if level == 1:
+            color_to_choice = dict(
+                zip(df_cl['color'], df_cl['darker'].apply(lambda x: x[0])))
+            df_str.loc[(df_str.level == level) & (df_str.color.isna()), 'color'] = df_str.loc[(df_str.level == level) & (
+                df_str.color.isna())]['parent'].map(lambda c: color_to_choice.get(df_str.loc[df_str.name == c,
+                                                                                             'color'].iloc[0], np.nan))
+        else:
+            color_to_choice = dict(zip(df_cl['darker'].apply(
+                lambda x: x[level-2]), df_cl['darker'].apply(lambda x: x[level-1:])))
+            for parent in df_str.loc[(df_str.level == level) & (df_str.color.isna())]['parent'].unique():
+                df_str.loc[(df_str.level == level) & (df_str.color.isna())
+                           & (df_str.parent == parent), 'color'] = color_to_choice.get(df_str.loc[df_str.name == parent, 'color'].iloc[0]).pop(0)
+    # Export dataframe to yaml
+    with open(PATH_OUT, 'w', encoding='utf-8') as file:
+        yaml.dump(df_str.reset_index(drop=True).to_dict(
+            orient='records'), file, sort_keys=False, indent=2)
+    df_cl.to_csv('color_csv.log', sep=";", index=False)
+    return True
+
+
 def check_device_role_yaml():
-    """check the device_role yaml."""
+    """check the device_role yaml against the markdown file."""
     with open(PATH_ROLE, 'r', encoding='utf-8') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -78,10 +168,10 @@ def check_device_role_yaml():
     else:
         if (count_dr == count_md).all():
             logger.info(
-                "Number of siblings of each group devices is consistent between markdown and device role file.")
+                "Number of children of each group devices is consistent between markdown and device role file.")
         else:
             logger.warning(
-                'Number of siblings of each group devices is NOT consistent between markdown and device role file')
+                'Number of children of each group devices is NOT consistent between markdown and device role file')
             logger.info(count_dr.loc[~(count_dr == count_md)])
             logger.info(count_md.loc[~(count_dr == count_md)])
 
@@ -90,7 +180,7 @@ def check_device_role_yaml():
 
 def set_color() -> bool:
     """Set color of device roles according to colortemplate.
-    The group role determine the color. The siblings have a 
+    The group role determine the color. The offsprings have a 
     darker one.
     """
     with open(PATH_ROLE, 'r', encoding='utf-8') as file:
@@ -150,11 +240,11 @@ def get_structure():
     # Prepare output structure
     parent = 'none'
     parent_tmp = 'none'
-    df_rl = pd.DataFrame(columns=['name', 'parent', 'siblings', 'level'])
+    df_rl = pd.DataFrame(columns=['name', 'parent', 'children', 'level'])
     df_rl = df_rl.astype({
         'name': str,
         'parent': str,
-        'siblings': int,
+        'children': int,
         'level': int
     })
     df_prt = pd.DataFrame(columns=['lev_prt'], data=['none'])
@@ -191,7 +281,7 @@ def get_structure():
 
     counts = df_rl.loc[df_rl.parent != 'none', 'parent'].value_counts()
     df_rl.loc[df_rl['name'].isin(counts.index),
-              'siblings'] = df_rl['name'].map(counts)
+              'children'] = df_rl['name'].map(counts)
     # df_rl.name = df_rl.name.replace(r" ", r"-", regex=True)
     # df_rl.parent = df_rl.parent.replace(r" ", r"-", regex=True)
     df_rl[['name', 'parent']] = df_rl[['name', 'parent']].apply(
@@ -214,4 +304,4 @@ def set_level_history(df_prt, parent_tmp, level, level_last):
 
 
 if __name__ == "__main__":
-    print('READY.')
+    print('READY TO USE.')

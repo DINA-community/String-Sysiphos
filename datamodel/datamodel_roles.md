@@ -39,6 +39,8 @@ After revision the following tasks can be provided by `lazy.py` script in utils 
 
 ### Role Structure
 
+> Please be aware when changing the following table that the structure of `device_role.yaml` will be set by the `|` sign.
+
 ```markdown
 Primary device role
 ├── Field device
@@ -85,7 +87,7 @@ Primary device role
 │       │── DNS server ✅
 │       │── Load balancer ✅
 │       │── NTP server ✅
-├── Network Structure
+├── Network Structure::Magenta Pink
 │   ├── Access point ✅
 │   ├── Bridge ✅
 │   ├── Hub ✅
@@ -135,8 +137,14 @@ Primary device role
 
 ### Role Color
 
+#### Option 1
+
 Note that the color of each device can be set using the `lazy.py` script wit the `set_color` function. The color scheme can be configured via the `device_roles_colortemplate.json` file. The basic assumption is:
 
 - the main device roles have their own color
 - the children of a parent have the same color
 - the offspring color is getting darker
+
+#### Option 2
+
+Use the `set_role_color_by_csv_mark`function in `lazy.py` to create device_roles from markdown structure and `color.csv`.
