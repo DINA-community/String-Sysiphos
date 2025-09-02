@@ -8,15 +8,19 @@
 
 ## Introduction
 
-An OT asset inventory—an organized, regularly updated list of an organization’s OT systems, hardware, and software—is foundational to designing a modern defensible architecture because without an inventory, organizations do not know what they have and what should be secured and protected.
-Successful asset management requires understanding what data to capture for each asset in an inventory. This page shows recommended asset inventory fields and potential benefits to including them. Also, possible sources how to collect this information is given at the beginning of each section. The sections are [`device`](#device), [`device type`](#device-type) and [`software`](#software).
+An OT asset inventory — an organized, regularly updated list of an organization’s OT systems, hardware, and software — is foundational to designing a modern defensible architecture because without an inventory, organizations do not know what they have and what should be secured and protected.
+Successful asset management requires knowing what data needs to be captured for each asset in an inventory. This page lists recommended fields for the asset inventory and the potential benefits of including them. The goal is to know what the asset does and where it is located. This means that not only technical data is needed, but also metadata to understand the purpose of the asset. This is the only way to derive attributes such as criticality.
+
+In addition, the most likely source for capturing this information is indicated at the beginning of each section. The sections are [`device`](#device), [`device type`](#device-type) and [`software`](#software).
 
 ### Legend for possible sources
 
 * :computer: = PCAP
 * :mag: = DeviceMgt
 * :calling: = Active requests to device/system
-* :construction_worker:= Manual by user
+* :construction_worker:= Manual by user (using bulk function when possible)
+
+Collecting data should be automated as much as possible. However, the source of truth only can be provided by qualified personal who know the facility.
 
 ## Device
 
@@ -87,7 +91,7 @@ potentially useful for understanding context and function of the device in the n
 
 Specifies the grade of exposure to other networks of a device. Valid values are:
 
-* Small:  The asset is in a highly isolated and controlled zone. There are no connections from this cyber asset’s zone to or from a zone with lower trust.
+* Small: The asset is in a highly isolated and controlled zone. There are no connections from this cyber asset’s zone to or from a zone with lower trust.
 * Indirect: The asset has no direct access to a zone with lower trust, but other cyber assets in this cyber asset’s zone are accessible to or from a zone with lower trust.
 * Direct: The asset is directly accessible to or from a zone with lower trust.
 * Unknown: Value if category for exposure is unknown.  
@@ -160,7 +164,8 @@ The security level is determined by a risk analysis. Therefore, relevant informa
 ### Serial Number
 
 Unique combination of numbers and letters used to identify the device once it has been manufactured [IDTA 2006](datamodel_idta#idta-02006-2-0).
-It helps to determine the affectedness by vulnerabilities. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.
+It helps to determine the affectedness by vulnerabilities. For example, a batch (SN range) has been shipped with a FW that contains a vulnerability.  
+Also, it can be used to check the device identity.
 
 ### Site
 
@@ -249,6 +254,7 @@ Using a fix number of attributes to describe the device type, the preferred stru
 | [device type description](#device-type-description)   | :construction_worker:     |
 | [hardware name](#hardware-name)                       | :calling:                 |
 | [hardware version](#hardware-version)                 | :calling:                 |
+| [lifecycle status](#lifecycle-status)                 | vendor     |
 | [manufacturer](#manufacturer-of-device-type)          | :mag:                     |
 | [model](#model)                                       | :calling:                 |
 | [part number](#part-number)                           | :calling:                 |
@@ -281,6 +287,10 @@ Point of purchase (may not be manufacturer)
 Multiple products exist in multiple hardware versions (due to PCB layout changes or chip shortages or hardware improvements), which can have impact on the software that can be used with the device.
 
 :question: *This attribute needs revision*
+
+### Lifecycle status
+
+Knowing when a device type will reach the end of its service life, alternatives can be found and purchase to ensure business continuity
 
 ### Manufacturer of Device Type
 
@@ -343,7 +353,7 @@ The port number of a service can be used to determine the protocol type if unkno
 | [sbom_urls](#sbom-urls)                           | :construction_worker:   |
 | [x_generic_uris](#x_generic_uris)                 | :construction_worker:   |
 
-> The fields for characterizing the software are also used for  firmware and operating system respectively:
+> The fields for characterizing the software are also used for firmware and operating system respectively:
 
 ```bash
 software_name: "Debian"
@@ -390,7 +400,7 @@ Note: CPE 2.2 and 2.3 version are not clear regarding HW or FW.
 
 Hashes should be used for firmware and applications software.
 Tuple [(hash(alg, file), file)], sind ca. 7 Hashwerte @mrt explain
-Hash for firmware SHA256 or SHA512 (preferred) would be appropriate. Otherwise use plan text such as  "Version 8.2.x"
+Hash for firmware SHA256 or SHA512 (preferred) would be appropriate. Otherwise use plan text such as "Version 8.2.x"
 
 :question: *This attribute needs revision.*
 

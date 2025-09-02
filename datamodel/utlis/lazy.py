@@ -96,7 +96,6 @@ def set_role_color_by_csv_mark():
     df_cl.notes = df_cl.notes.fillna("set in color function")
 
     # set level 1 ... n
-    level = 1
     for level in range(1, df_str.level.max()+1):
         if level == 1:
             color_to_choice = dict(
