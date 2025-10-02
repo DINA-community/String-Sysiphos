@@ -92,24 +92,22 @@ Detailed device description such as specific hardware configuration.
 ### Device name
 
 A device usually has a descriptive name given by the manufacturer, integrator or operator ("Well known name"). It can be
-potentially useful for understanding context and function of the device in the network if included in host naming conventions.
-> TODO: Provide example
+potentially useful for understanding context and function of the device in the network if included in host naming conventions like A1SETT01 for \<Site>\<Type>\<Role>\<ID\> meaning Area1, Sensor, Temp. Transmitter and ID 01.
 
 ### Exposure
 
 Specifies the grade of exposure to other networks of a device. Valid values are:
 
-* Small: The asset is in a highly isolated and controlled zone. There are no connections from this cyber asset’s zone to or from a zone with lower trust.
-* Indirect: The asset has no direct access to a zone with lower trust, but other cyber assets in this cyber asset’s zone are accessible to or from a zone with lower trust.
-* Direct: The asset is directly accessible to or from a zone with lower trust.
-* Unknown: Value if category for exposure is unknown.  
-
-> TODO: Revise the text to make it clearly that the device can access device from lower trust and device from lower trust zones can be access the device
+* Small: The asset resides in a highly isolated and controlled zone. There are no conduits with a zone of lower trust.
+Neither this asset can access lower-trust zones nor can it be accessed by them.
+* Indirect: The asset itself has no direct conduits with a zone of lower trust.
+However, other assets in the same zone can be accessed from, or can access, zones with lower trust — creating a potential indirect exposure path.
+* Direct: The asset has direct conduits to or from a zone of lower trust.
+* Unknown: The exposure level of the asset is currently undetermined.  
 
 ### Hostname
 
 see [Device Name](#device-name)
-> TODO: it is not the same since hostname is limited by naming conventions
 
 ### Hypervisor
 
