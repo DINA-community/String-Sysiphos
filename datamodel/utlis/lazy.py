@@ -1,39 +1,43 @@
 """
 This script checks the device schema in the parent folder.
-In addition, the color of each device can be specified using the color template. 
-Note that devices assigned to a parent device have the same color, 
+In addition, the color of each device can be specified using
+the color template.
+Note that devices assigned to a parent device have the same color,
 which is usually darker than the color of the parent device.
+
+
+set_role_color_by_csv_mark
+check_device_role_yaml
+set color
+get color
+get structure
+set level history
+
 """
 
 
 import json
 import re
-import os
 from typing import Final
 from collections import defaultdict
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import yaml
 from loguru import logger
 
-
-logger.remove()
-logger.add("lazy.log", format="{time}-{message}")
-
 DEVICE_ROLE: Final[str] = 'device_roles.yml'
 COLOR_TEMPLATE: Final[str] = 'device_roles_colortemplate.json'
 COLOR_CSV: Final[str] = 'color.csv'
-PATH_ROLE: Final[str] = os.path.join(
-    os.path.dirname(os.getcwd()), DEVICE_ROLE)
-PATH_COLOR: Final[str] = os.path.join(os.getcwd(), COLOR_TEMPLATE)
-PATH_OUT: Final[str] = os.path.join(os.getcwd(), 'device_roles_colored.yaml')
-PATH_DATA: Final[str] = os.path.join(
-    os.path.dirname(os.getcwd()), 'datamodel_roles.md')
+PATH_ROLE: Final[str] = Path.cwd().parent / DEVICE_ROLE
+PATH_COLOR: Final[str] = Path.cwd() / COLOR_TEMPLATE
+PATH_OUT: Final[str] = Path.cwd() / 'device_roles_colored.yaml'
+PATH_DATA: Final[str] = Path.cwd().parent / "datamodel_roles.md"
 
 
 def set_role_color_by_csv_mark():
     """Create the device role yaml according to the markdown file.
-    Use the csv file and in markdown colors indicated by '::<colorname>' 
+    Use the csv file and in markdown colors indicated by '::<colorname>'
 
     Input options:
         - set color by adding "::<colorname>" behind device role
@@ -43,7 +47,7 @@ def set_role_color_by_csv_mark():
     Color fill logic:
         - main roles get a different color each
         - children get the same darker tone of that color
-        - the children of a child get the same darker tone 
+        - the children of a child get the same darker tone
 
     Warning: Errors are not neither logged or prevented by wrong input data
     """
@@ -67,14 +71,13 @@ def set_role_color_by_csv_mark():
         # update df_cl list with markdown color settings
         for ind in pre_mrk.index:
             df_cl.choice[df_cl.color_name == pre_mrk.loc[ind]
-                        ['color']] = pre_mrk.loc[ind]['role']
+                         ['color']] = pre_mrk.loc[ind]['role']
             df_cl.notes[df_cl.color_name == pre_mrk.loc[ind]
                         ['color']] = "markdown color"
     except ValueError:
         logger.info("No  color was set in markdown file.")
     df_str.name = df_str.name.replace(r"::.*", "", regex=True)
     df_str.parent = df_str.parent.replace(r"::.*", "", regex=True)
-
 
     # Create a dictionary to map color to choice
     color_to_choice = dict(zip(df_cl['choice'], df_cl['color']))
@@ -118,7 +121,7 @@ def set_role_color_by_csv_mark():
 
 
 def check_device_role_yaml():
-    """check the device_role yaml against the markdown file."""
+    """Check the device_role yaml against the markdown file."""
     with open(PATH_ROLE, 'r', encoding='utf-8') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -129,7 +132,7 @@ def check_device_role_yaml():
         logger.warning(
             f"There are {df.parent.isnull().sum()} roles with no parent entry")
     else:
-        logger.info("Every role has a parent entry")
+        logger.success("Every role has a parent entry")
     if len(df.drop_duplicates(subset=["slug"])) != len(df):
         logger.info("The file has duplicates according to slug.")
     df_slag = df.loc[df.slug.str.replace("-", " ") != df.name.str.lower()]
@@ -138,14 +141,16 @@ def check_device_role_yaml():
             "Slags and names are not following the naming convention")
         logger.warning(df_slag)
     else:
-        logger.info("Slag and name are following the naming convention.")
+        logger.success("Slag and name are following the naming convention.")
 
     if df.vm_role.isnull().sum():
         logger.info(
             f"Missing vm_roles (num): {df.loc[df.vm_role.isnull().sum()]}")
 
-    logger.info("Check if group roles are in json")
     df_struc = get_structure()
+    # delete given color settings
+    df_struc['name'] = df_struc.name.replace(r"::.*", "", regex=True)
+    df_struc['parent'] = df_struc.parent.replace(r"::.*", "", regex=True)
     if len(df_struc.loc[~df_struc.name.isin(df.slug)]):
         logger.info(
             "There are roles from markdown file missing in device_roles")
@@ -166,7 +171,7 @@ def check_device_role_yaml():
             "parent naming is different. Check out. Structure may be wrong.")
     else:
         if (count_dr == count_md).all():
-            logger.info(
+            logger.success(
                 "Number of children of each group devices is consistent between markdown and device role file.")
         else:
             logger.warning(
@@ -178,9 +183,9 @@ def check_device_role_yaml():
 
 
 def set_color() -> bool:
-    """Set color of device roles according to colortemplate.
-    The group role determine the color. The offsprings have a 
-    darker one.
+    """Set color of device roles according to colortemplate.json
+    The group role determine the color. The offsprings are
+    darker.
     """
     with open(PATH_ROLE, 'r', encoding='utf-8') as file:
         data = yaml.load(file, Loader=yaml.FullLoader)
@@ -233,7 +238,8 @@ def get_color(slug, df, df_color):
 
 
 def get_structure():
-    """Get Structure of markdown file. You need to copy and paste it here"""
+    """Get Structure of markdown file. You need to adjust the structure
+    in PATH_DATA."""
     with open(PATH_DATA, 'r', encoding='utf-8') as f:
         raw_input = [line.replace('\n', '') for line in f.readlines()]
     # Prepare output structure
@@ -304,3 +310,9 @@ def set_level_history(df_prt, parent_tmp, level, level_last):
 
 if __name__ == "__main__":
     print('READY TO USE.')
+    logger.remove()
+    logger.add("lazy.log", format="{time}-{level}-{message}")
+    print('Checks performing, see log')
+    check_device_role_yaml()
+    print('Generate device file according to color in json')
+    set_color()
