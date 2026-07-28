@@ -24,13 +24,13 @@ Also, this feature can be used to group device roles for machine learning approa
 
 There will be never THE definitive role structure. However, it should be reasonable and acceptable as well as adaptable.
 
-|Sign | Action |
-|-|-|
-|:question:| group not sure, need reason |
-|:exclamation: | need (clearer) description|
-| :skull: | intended group is wrong 💀 |
-|:no_entry_sign:|role not helpful 🚫|
-|:white_check_mark:| ready for revision ✅|
+|Sign               | Action                        |
+|---                |                           --- |
+|:question:         | group not sure, need reason   |
+|:exclamation:      | need (clearer) description    |
+| :skull:           | intended group is wrong 💀    |
+|:no_entry_sign:    | role not helpful 🚫           |
+|:white_check_mark: | ready for revision ✅         |
 
 After revision the following tasks can be provided by `lazy.py` script in utils folder
 
@@ -139,11 +139,11 @@ Primary device role
 
 #### Option 1
 
-Note that the color of each device can be set using the `lazy.py` script wit the `set_color` function. The color scheme can be configured via the `device_roles_colortemplate.json` file. The basic assumption is:
+Note that the color of each device can be set using the `lazy.py` script with the `set_color` function. The color scheme can be configured via the `device_roles_colortemplate.json` file. The basic assumption is:
 
 - the main device roles have their own color
-- the children of a parent have the same color
-- the offspring color is getting darker
+- the children of a parent have the same color (darker)
+- the offspring/descendent color becomes darker with each generation
 
 #### Option 2
 

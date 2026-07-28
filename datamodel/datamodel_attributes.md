@@ -9,7 +9,11 @@
 ## Introduction
 
 An OT asset inventory — an organized, regularly updated list of an organization’s OT systems, hardware, and software — is foundational to designing a modern defensible architecture because without an inventory, organizations do not know what they have and what should be secured and protected.
-Successful asset management requires knowing what data needs to be captured for each asset in an inventory. This page lists recommended fields for the asset inventory and the potential benefits of including them. The goal is to know what the asset does and where it is located. This means that not only technical data is needed, but also metadata to understand the purpose of the asset. This is the only way to derive attributes such as criticality.
+Successful asset management requires knowing what data needs to be captured for each asset in an inventory. This page lists recommended fields for the asset inventory and the potential benefits of including them. It enriches and explains fields listed in [Foundations for OT Cybersecurity: Asset Inventory Guidance for Owners and Operators - Appendix A](https://www.cisa.gov/resources-tools/resources/foundations-ot-cybersecurity-asset-inventory-guidance-owners-and-operators).
+
+The goal is to know what the asset does and where it is located. This means that not only technical data is needed, but also metadata to understand the purpose of the asset. This is the only way to derive attributes such as criticality.
+
+Furthermore it has to be kept in mind that not all attributes have the same priority. Also a broader incomplete database is better than having only a few assets described fully and the rest is missing (almost) completely.
 
 In addition, the most likely source for capturing this information is indicated at the beginning of each section. The sections are [`device`](#device), [`device type`](#device-type) and [`software`](#software).
 
@@ -22,13 +26,11 @@ In addition, the most likely source for capturing this information is indicated 
 
 Collecting data should be automated as much as possible. However, the source of truth only can be provided by qualified personal who know the facility.
 
-> TODO name source for data collection. Also, explain that not all attributes have the same priority a broder uncomplite database is better than having only a few assets described fully and the rest is missing (almost) completely.
-
 ## Device
 
-| **Device**                            | Main source (possible source)         |  
-|-                           |  -                                    |
-| [asset identifier](#asset-identifier)                                     | :construction_worker:                 |
+| **Device**                                                    | Main source (possible source)         |  
+|-                                                              |  -                                    |
+| [asset identifier](#asset-identifier)                         | :construction_worker:                 |
 | [backup](#backup-frequency--type)                             | :construction_worker:                 |
 | [baseline image](#baseline-image)                             | :construction_worker:                 |
 | [configuration](#configuration)                               | :construction_worker:                 |
@@ -67,7 +69,6 @@ This attribute provides frequency for how often backups are performed (e.g., dai
 ### Baseline Image
 
 It is useful to know if there is a particular known-good (baseline) image that the OS installation was based on, aiding in post-incident recovery.
-> TODO: definition is missing
 
 ### Configuration
 
@@ -75,10 +76,9 @@ It is a generic term that contains a URI to one or more configuration files. Tho
 
 ### Criticality
 
-It is a value that represents the criticality of the device for the operational process. The criticality ensures that a device is managed
-based on its operational role, its impact on safety, and/or exposure to risks.
-
-> TODO: Need link to a nomenclature and hint that is has to be deterministic
+Assets are classified based on their importance to the organization's operations, safety, and mission as well as the exposure to risks.
+Critical assets are those whose failure or compromise would have the most significant impact. One approach to determine those is the
+[Consequence-Driven Cyber-Informed Risk Assessment Exercises](https://ci-discern.com/cce-risk-assessment)
 
 ### Date of Manufacture
 
