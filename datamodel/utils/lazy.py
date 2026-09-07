@@ -394,10 +394,12 @@ def main():
         print("Running default setup")
         check_device_role_yaml()
     elif args.command == "json":
+        print("Running set color by json input")
         check_device_role_yaml()
         set_color()
     elif args.command == "csv":
         check_device_role_yaml()
+        print("Running set color by csv input")
         set_role_color_by_csv_mark()
 
 
