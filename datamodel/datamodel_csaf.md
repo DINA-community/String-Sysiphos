@@ -10,7 +10,7 @@ Only relevant attributes for CSAF are shown in the table.
 
 | **ASSET**                       | |
 | ------------------------------- | ------------------------------------------------------------------------ |
-| **DeviceType**                  |  **CSAF (JSON-Path)**|
+| **Device/Module Type**                  |  **CSAF (JSON-Path)**|
 | [`manufacturer:name`](datamodel_attributes.md#manufacturer-of-device-type)              | - `$.product_tree..branches[?(@.category=="vendor")].name`|
 | [`device_family`](datamodel_attributes.md#device-family)                  | - `$.product_tree..branches[?(@.category=="product_family")].name`|
 | [`model_number`]((datamodel_attributes.md#model) )            | - `$.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.model_numbers[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.model_numbers[*]` |

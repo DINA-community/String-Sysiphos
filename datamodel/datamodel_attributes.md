@@ -210,13 +210,21 @@ Is the device physical or virtual.
 
 ## Device Type
 
-The device type can be represented with many attributes. Instead of using only one field, this data model uses several fields to record the product.
+> **Note:** In this section, device types also represent module types, which are introduced in the NetBox data model.
 
-### Using a Hierarchy
+A device type can be described by many attributes. Instead of relying on a single field, this data model uses several fields to record the product. This statement is also valid for module types. As stated in the [NetBox documentation](https://netboxlabs.com/docs/netbox/models/dcim/module/):
+
+> "A module is a field-replaceable hardware component installed within a device that houses its own child components. Similar to devices, modules are instantiated from module types, and any components associated with the module type are automatically instantiated on the new model."
+
+In OT environments, a module type family such as SIPLUS ET can have different modules, for example interface and supply modules.
+
+Both types are useful for determining whether a product is affected by a vulnerability. Additionally, the modules used in a device may indicate its function.
+
+### Representing Types
+
+#### Recursive Hierarchy
 
 The preferred way to do this would be a recursive structure (see discussion on [NetBox community](https://github.com/netbox-community/netbox/discussions/14125)). In this way, the different description in depth of manufacturers could be handled in a clear structure which is similar to the CSAF:
-
-:question: *This attribute needs further specification. Why and for what is this attribute useful*
 
 ```plaintext
 Manufacturer
@@ -239,31 +247,33 @@ Manufacturer
 * 2nd distinguish between different products of this family,
 * 3th distinguish between different specifications or sub products of this product or versions
 
-### Using a Plain Hierarchy
+This approach from a data base point of view is more complex. Therefore, the plain hierarchy is used instead.
 
-Using a fix number of attributes to describe the device type, the preferred structure is this in context to CSAF and NetBox:
+#### Plain Hierarchy
 
-:question: *This attribute needs further specification. Why and for what is this attribute useful*
+Using a fix number of attributes to describe the device type, the preferred structure in context to CSAF and NetBox is:
 
-| Attribute |  DDDC |
-|:---:|:----:|
-| manufacturer | Rockwell Automation|
-| family |  ControlLogix |
-| model (number) | Rack K -10 Slot|
-| part_number | 1756-A10K|
-| hardware name | N/A |
-| hardware version | 1.0|
-| device type description | detailed specification of GPU and RAM |
-| | |
+| Attribute                 |  Device Type                          |  Module Type                          |
+|:-------------------------:|:-------------------------------------:|:-------------------------------------:|
+| manufacturer              | Rockwell Automation                   | Siemens                               |
+| family                    | ControlLogix                          | SIPLUS ET                             |
+| model (number)            | Rack K -10 Slot                       | 200 SP                                |
+| part_number               | 1756-A10K                             | 6AG2155-6AU01-4CN0                    |
+| hardware name             | N/A                                   | IM 155-6 PN                           |
+| hardware version          | 1.0                                   | 4.12.0                                |
+| type description          | detailed specification of GPU and RAM | HF TX RAIL                            |
+|                           |                                       |                                       |
 
-| **Device Type**   | -    |
-|-|-|
+This solution is simpler and more user-friendly option across databases. However, a significant portion of product-specific information may be stored in the description field, which could complicate the mapping process.
+
+| **Device/Module Type**                                | -                         |
+|-                                                      |-                          |
 | [cpe](#cpe)                                           | :construction_worker:     |
 | [device family](#device-family)                       | :mag:                     |
 | [device type description](#device-type-description)   | :construction_worker:     |
 | [hardware name](#hardware-name)                       | :calling:                 |
 | [hardware version](#hardware-version)                 | :calling:                 |
-| [lifecycle status](#lifecycle-status)                 | vendor     |
+| [lifecycle status](#lifecycle-status)                 | vendor                    |
 | [manufacturer](#manufacturer-of-device-type)          | :mag:                     |
 | [model](#model)                                       | :calling:                 |
 | [part number](#part-number)                           | :calling:                 |
@@ -324,11 +334,11 @@ The regular patch cycle of this kind of device type.
 
 By services the interaction within the IT/OT and outside the perimeter is documented.
 
-| **Service**                             |   Main source (possible source) |
-|-                                                          |   -           |
-| [Communication partner IP](#communication-partner---ip)   | :computer:    |
-| [protocol](#protocolservices)                             | :computer:    |
-| [ports](#portsservices)                                   | :computer:    |
+| **Service**                                               |   Main source (possible source)   |
+|-                                                          |   -                               |
+| [Communication partner IP](#communication-partner---ip)   | :computer:                        |
+| [protocol](#protocolservices)                             | :computer:                        |
+| [ports](#portsservices)                                   | :computer:                        |
 
 ### Communication partner - IP
 
