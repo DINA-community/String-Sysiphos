@@ -125,7 +125,7 @@
 - name: BMS
   slug: bms
   parent: management
-  reason_for_parent: needed
+  reason_for_parent: Acts as a group 
   description: Building management system. Controls and monitors a building's electrical, HVAC, and security systems
   vm_role: true
   color: Amber
