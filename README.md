@@ -1,32 +1,24 @@
 # String-Sysiphos
 
-> This repository provides regular expressions and dictionaries for the repository [`String-Atlas`](https://github.com/DINA-community/String-Atlas).
-
-String-Sysiphos is a collection of Word-books and regular expression, focusing on String consistency, normalization and mapping for CSAF and OT-Network Assets. This collection was designed for the [`DINA-community`](https://github.com/DINA-community) project, surrounding [`Malcolm`](https://github.com/cisagov/Malcolm) and [`DDDC`](https://github.com/DINA-community/DDDC-Netbox-plugin).
+String-Sysiphos is a collection of word-books and regular expression, focusing on string consistency, normalization and mapping for CSAF and OT-Network Assets. This collection was designed for the [`DINA-community`](https://github.com/DINA-community) project, surrounding [`Malcolm`](https://github.com/cisagov/Malcolm) and [`DDDC`](https://github.com/DINA-community/DDDC-Netbox-plugin).
 
 Note that the attributes the regular expressions are pointing to are those used for the NetBox plugins.
 
-## Dictionaries
+## Dictionaries String-Atlas
 
-### Synonyms
+| File                  | Description                                                                           |
+| --------              | --------                                                                              |
+| config.json           | Columns for data frame to process csaf documents                                      |
+| normalisation.yaml    | Pattern for cleaning.                                                                 |
+| re_data.yaml          | Regular expressions for mining information out of a text (short or long string)       |
+| synonym.yaml          | The synonyms are case insensitive and have the purpose to normalize the input.        |
 
-The synonyms are case insensitive and have the purpose to normalize the input.
+## Data model
 
-### Normalization
+Fundamental to any approach to securing and protecting OT systems is the complete and accurate identification of all OT assets and systems and how they connect and communicate across an organization’s networks.  
+This data should be standardized. Under [datamodel](/datamodel/datamodel.md) the data models with its attributes and roles are explained. Furthermore, the mapping for the [DDDC-Plugin](https://github.com/DINA-community/DDDC-Netbox-plugin) for [NetBox](https://netboxlabs.com/docs/netbox/en/stable/) with [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html) is illustrated.
 
-Pattern for cleaning.
-
-### Regular expressions
-
-Regular expressions for mining information out of a text (short or long string)
-
-### Device_list
-
-Dictionary for several attributes, especially device ones.
-
-## NetBox libraries
-
-This libraries are a result of the String-Atlas or student thesis as a byproduct.
+## NetBox Files
 
 ### Manufacturers
 
@@ -43,9 +35,7 @@ The field `group` divided the companies into different working areas:
 
 ### Device Roles
 
-> Note that this file is located only in the branch `data_model` at the moment.
-
-`device_roles.yml` provided role reflecting the hierarchical feature for device roles since NetBox version [`4.3`](https://netboxlabs.com/docs/netbox/release-notes/version-4.3#hierarchical-device-roles-18245).
+`device_roles.yml` provided role reflecting the hierarchical feature for device roles since [NetBox 4.3](https://netboxlabs.com/docs/netbox/release-notes/version-4.3#hierarchical-device-roles-18245).
 
 ```yaml
 - name: physical-sensor
@@ -57,4 +47,4 @@ The field `group` divided the companies into different working areas:
 
 The software was developed on behalf of the [BSI](https://www.bsi.bund.de) \(Federal Office for Information Security\)
 
-Copyright &copy; 2024-2025 by DINA-Community Apache 2.0 License. [See License](/LICENSE)
+Copyright &copy; 2024-2026 by DINA-Community Apache 2.0 License. [See License](/LICENSE)
