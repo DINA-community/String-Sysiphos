@@ -21,7 +21,7 @@ Only relevant attributes for CSAF are shown in the table.
 | [`cpe`](datamodel_attributes.md#cpe-software)                             | For hardware products <br>- `$.product_tree.full_product_names[*].product_identification_helper.cpe`<br>- `$.product_tree..branches[*].product.product_identification_helper.cpe`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.cpe`                                        |
 | **Device**                      |   |
 | [`name`](datamodel_attributes.md#device-name)                            | - `$.product_tree..branches[?(@.category=="host_name")].name`  |
-| [`serial`](datamodel_attributes.md#serial-number)                        | - `$.product_tree.full_product_names[*].product_identification_helper.serial_number[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.serial_number[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.serial_number[*]` |
+| [`serial`](datamodel_attributes.md#serial-number)                        | - `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.serial_numbers[*]` |
 | **Software**                    |   |
 | [`name`](datamodel_attributes.md#software-name)                          | - `$.product_tree..branches[?(@.category=="product_name")].name` |
 | [`manufacturer:name`](datamodel_attributes.md#software-manufacturer)    | - `$.product_tree..branches[?(@.category=="vendor")].name`  |
