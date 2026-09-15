@@ -30,15 +30,16 @@ This show how the data model is placed and the status of implementation accordin
 |[Exposure](datamodel_attributes.md#exposure) | Device:exposure | custom | - |exposure to other network zones |
 |[Date of Manufacture](datamodel_attributes.md#date-of-manufacture)    | Device:year              | custom | -| Year of construction of the device. Useful in determining obsolescence and possible shifts in ownership of device type. |
 |[Inventory Number](datamodel_attributes.md#device-key)  | Device:Inventory_number | custom | - |  Not relevant for vulnerability matching. However, for linking the dataset to other internal products like SAP |
-| **Module Type** |  |  |  | |
+| **Module Type** | |  | [#69](https://github.com/DINA-community/DDDC-Netbox-plugin/issues/69) :hammer:  | |
 |[Manufacturer](datamodel_attributes.md##manufacturer-of-device-type)  | [Manufacturer:name](https://netboxlabs.com/docs/netbox/models/dcim/manufacturer/)        | core| -| manufacturer **of module type** like  ABB, Schneider Electric|
 |Module Type Name       | manufacturer + model     | core | generated :hammer: | used for assign a module to a module type. Purely Netbox related attribute |
-|[Module Family](datamodel_attributes.md#device-family)          | [ModuleType:device_family]((https://netboxlabs.com/docs/netbox/models/dcim/moduletype/)) | custom | new/mandatory:hammer:  |usually family a model is assigned to |
+|[Module Family](datamodel_attributes.md#device-family)          | [ModuleType:device_family]((https://netboxlabs.com/docs/netbox/models/dcim/moduletype/)) | custom | new/mandatory :hammer:  |usually family a model is assigned to |
 |[Model Number](datamodel_attributes.md#model)         | [ModuleType:model](https://netboxlabs.com/docs/netbox/models/dcim/moduletype/#model)  | core | mandatory |Model number given by the manufacturer. One specification of a device_family like 6RA8096-4MV62-0AA0|
 |[SKU](datamodel_attributes.md#part-number)                  | ModuleType:part_number   | core |-| SKU (stock keeping unit) also known as part number |
-|[Hardware Name](datamodel_attributes.md#hardware-name)           |ModuleType:hardware_name | custom | new/mandatory:hammer:  | Keep the nomenclature to device type. Specifications such as HF Tail RX for Siplus |
-|[Hardware version](datamodel_attributes.md#hardware-version)        |ModuleType:hardware_version | custom| new/mandatory:hammer:  | Hardware version of the product; use "N/A" if just one version was build; use "unknown" if not known. The notations of the manufacturer should not be altered. |
+|[Hardware Name](datamodel_attributes.md#hardware-name)           |ModuleType:hardware_name | custom | new/mandatory :hammer:  | Keep the nomenclature to device type. Specifications such as HF Tail RX for Siplus |
+|[Hardware version](datamodel_attributes.md#hardware-version)        |ModuleType:hardware_version | custom| new/mandatory :hammer:  | Hardware version of the product; use "N/A" if just one version was build; use "unknown" if not known. The notations of the manufacturer should not be altered. |
 |[Module Type Description](datamodel_attributes.md#device-type-description)     | ModuleType:module_description | core | - |additional, optional field for detailed device description. Also it can be used for CSAF matching as full produce name|
+|[CPE](datamodel_attributes.md#cpe)      | ModuleType:cpe | custom | new :hammer: |Common Platform Enumeration (CPE), is also used as CSAF product identification helper |
 | **Device Type** |  |  |  | |
 |[Manufacturer](datamodel_attributes.md##manufacturer-of-device-type)  | [Manufacturer:name](https://netboxlabs.com/docs/netbox/models/dcim/manufacturer/)        | core| -| manufacturer **of device type** like  ABB, Schneider Electric|
 |Device Type Name       | manufacturer + model     | core | generated  | used for assign a device to a device type. Purely Netbox related attribute |
@@ -48,7 +49,8 @@ This show how the data model is placed and the status of implementation accordin
 |[Hardware Name](datamodel_attributes.md#hardware-name)           |DeviceType:hardware_name  | custom |-| HW  of device, not of installed software (flag must be set in NetBox) |
 |[Hardware version](datamodel_attributes.md#hardware-version)        |DeviceType:hardware_version | custom|-| Hardware version of the product; use "N/A" if just one version was build; use "unknown" if not known. The notations of the manufacturer should not be altered. |
 |[Device Type Description](datamodel_attributes.md#device-type-description)     | DeviceType:device_description | core | |additional, optional field for detailed device description. Also it can be used for CSAF matching as full produce name|
-| **Software** :hammer:[#70](https://github.com/DINA-community/DDDC-Netbox-plugin/issues/70) |  |  |  | need general revision|
+|[CPE](datamodel_attributes.md#cpe)      | DeviceType:cpe | custom |  |Common Platform Enumeration (CPE), is also used as CSAF product identification helper|
+| **Software**  |  |  | :hammer:[#70](https://github.com/DINA-community/DDDC-Netbox-plugin/issues/70) | need general revision|
 |[Software Manufacturer](datamodel_attributes.md#software-manufacturer)    |Software:manufacturer | new | :hammer: | distinguish between manufacturer of the device |
 |[Firmware Name](datamodel_attributes.md#software-name) |Software:name  | custom  |-|FW of device, not of installed software (flag must be set in NetBox) |
 |[Firmware Version](datamodel_attributes.md#software-version)   |Software:version    |  modify |:hammer:  | FW version of device, not of installed software (flag must be set in NetBox). |
