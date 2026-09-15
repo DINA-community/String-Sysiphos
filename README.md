@@ -16,7 +16,7 @@ Note that the attributes the regular expressions are pointing to are those used 
 ## Data model
 
 Fundamental to any approach to securing and protecting OT systems is the complete and accurate identification of all OT assets and systems and how they connect and communicate across an organization’s networks.  
-This data should be standardized. Under [datamodel](/datamodel/datamodel.md) the data models with its attributes and roles are explained. Furthermore, the mapping for the [DDDC-Plugin](https://github.com/DINA-community/DDDC-Netbox-plugin) for [NetBox](https://netboxlabs.com/docs/netbox/en/stable/) with [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html) is illustrated.
+This data should be standardized. Under [datamodel](/datamodel/datamodel.md) the data model with its attributes and roles is explained. Furthermore, the mapping for the [DDDC-Plugin](https://github.com/DINA-community/DDDC-Netbox-plugin) for [NetBox](https://netboxlabs.com/docs/netbox/en/stable/) with [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html) is illustrated.
 
 ## NetBox Files
 

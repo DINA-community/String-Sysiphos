@@ -8,7 +8,7 @@
 
 Only relevant attributes for CSAF are shown in the table.
 
-> Note: for existing documents often only the (full) product name is used, so full relationship modelling looks oversized today. The point of doing it anyway is that publishers who use the CSAF standard correctly can then be matched automatically with high confidence (which is the goal here).
+> Note: for existing documents often only the (full) product name is used, so full relationship modelling looks oversized. The point of doing it anyway is that publishers who use the CSAF standard correctly can then be matched automatically with high confidence (which is the goal here).
 
 
 | **ASSET**                       | |
@@ -57,7 +57,7 @@ In case of ProductRelationship, the value is a Product ID (e.g. CSAFID-002) whic
 
 #### Module
 
-NetBox handles explicit the ProductRelationship between Device and Module. As a result no changes in NetBox are needed.
+NetBox explicitly handles the ProductRelationship between Device and Module. As a result no changes in NetBox are needed.
 
 "A module is a field-replaceable hardware component **installed within** a device that houses its own child components. Similar to devices, modules are instantiated from module types, and any components associated with the module type are automatically instantiated on the new model."\[[NetBox documentation](https://netboxlabs.com/docs/netbox/models/dcim/module/)\]
 
