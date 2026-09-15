@@ -8,6 +8,9 @@
 
 Only relevant attributes for CSAF are shown in the table.
 
+> Note: for existing documents often only the (full) product name is used, so full relationship modelling looks oversized. The point of doing it anyway is that publishers who use the CSAF standard correctly can then be matched automatically with high confidence (which is the goal here).
+
+
 | **ASSET**                       | |
 | ------------------------------- | ------------------------------------------------------------------------ |
 | **Device/Module Type**                  |  **CSAF (JSON-Path)**|
@@ -21,7 +24,7 @@ Only relevant attributes for CSAF are shown in the table.
 | [`cpe`](datamodel_attributes.md#cpe-software)                             | For hardware products <br>- `$.product_tree.full_product_names[*].product_identification_helper.cpe`<br>- `$.product_tree..branches[*].product.product_identification_helper.cpe`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.cpe`                                        |
 | **Device**                      |   |
 | [`name`](datamodel_attributes.md#device-name)                            | - `$.product_tree..branches[?(@.category=="host_name")].name`  |
-| [`serial`](datamodel_attributes.md#serial-number)                        | - `$.product_tree.full_product_names[*].product_identification_helper.serial_number[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.serial_number[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.serial_number[*]` |
+| [`serial`](datamodel_attributes.md#serial-number)                        | - `$.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]`<br>- `$.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]`<br>- `$.product_tree.relationships[*].full_product_name.product_identification_helper.serial_numbers[*]` |
 | **Software**                    |   |
 | [`name`](datamodel_attributes.md#software-name)                          | - `$.product_tree..branches[?(@.category=="product_name")].name` |
 | [`manufacturer:name`](datamodel_attributes.md#software-manufacturer)    | - `$.product_tree..branches[?(@.category=="vendor")].name`  |
@@ -41,3 +44,29 @@ Only relevant attributes for CSAF are shown in the table.
 | `parent`                        | - `&($.product_tree.relationships[*].product_reference)` => Link to product in CSAF file. Value must be de-referenced|
 | `type_of_relationship`          | - `$.product_tree.relationships[*].category`|
 | `target`                        | - `&($.product_tree.relationships[*].relates_to_product_reference)` => Link to product in CSAF file. Value must be de-referenced|
+
+## Comments
+
+### Extensions Type Schema
+
+Note that with CSAF 2.1 an [Extensions Type Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) is introduced which is missing in the mapping above.
+
+### ProductRelationship
+
+In case of ProductRelationship, the value is a Product ID (e.g. CSAFID-002) which must be de-referenced to an asset in the database.
+
+#### Module
+
+NetBox explicitly handles the ProductRelationship between Device and Module. As a result no changes in NetBox are needed.
+
+"A module is a field-replaceable hardware component **installed within** a device that houses its own child components. Similar to devices, modules are instantiated from module types, and any components associated with the module type are automatically instantiated on the new model."\[[NetBox documentation](https://netboxlabs.com/docs/netbox/models/dcim/module/)\]
+
+### Legend
+
+| sign  | name              | meaning                                                   | example                       |
+|---    |---                |---                                                        |---                            |
+|  $    |  root             |  The document root — always the starting point            |  whole CSAF JSON              |
+|  ..   |  recursive descent| Look at this node and every node below it, at any depth   |  $..branches                  |
+|  [*]  |  wild card        | All elements of an array / all members of an object       |  $.branches[*]                |
+|  @    |  current node     | "This node" — the one the filter is testing right now     |  @.category                   |
+|  ?()  |  filter expression| Keep only nodes where the test inside is true             | ?(@.category=="product_name") |

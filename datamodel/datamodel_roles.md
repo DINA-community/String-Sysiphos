@@ -144,7 +144,8 @@ Additionally, the description will be set with "missing" if not provided, since 
 
 ```bash
 cd utils
-python lazy.py [None, "csv", "json"]
+python lazy.py [Option]  # Method 1
+uv run python lazy.py [Option] # Method 2
 ```
 
 #### Option None
