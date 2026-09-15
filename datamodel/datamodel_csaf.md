@@ -8,6 +8,9 @@
 
 Only relevant attributes for CSAF are shown in the table.
 
+> Note: for existing documents often only the (full) product name is used, so full relationship modelling looks oversized today. The point of doing it anyway is that publishers who use the CSAF standard correctly can then be matched automatically with high confidence (which is the goal here).
+
+
 | **ASSET**                       | |
 | ------------------------------- | ------------------------------------------------------------------------ |
 | **Device/Module Type**                  |  **CSAF (JSON-Path)**|
@@ -42,9 +45,23 @@ Only relevant attributes for CSAF are shown in the table.
 | `type_of_relationship`          | - `$.product_tree.relationships[*].category`|
 | `target`                        | - `&($.product_tree.relationships[*].relates_to_product_reference)` => Link to product in CSAF file. Value must be de-referenced|
 
-> Note that with CSAF 2.1 an [Extensions Type Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) is introduced.
+## Comments
 
-Explanation
+### Extensions Type Schema
+
+Note that with CSAF 2.1 an [Extensions Type Schema](https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json) is introduced which is missing in the mapping above.
+
+### ProductRelationship
+
+In case of ProductRelationship, the value is a Product ID (e.g. CSAFID-002) which must be de-referenced to an asset in the database.
+
+#### Module
+
+NetBox handles explicit the ProductRelationship between Device and Module. As a result no changes in NetBox are needed.
+
+"A module is a field-replaceable hardware component **installed within** a device that houses its own child components. Similar to devices, modules are instantiated from module types, and any components associated with the module type are automatically instantiated on the new model."\[[NetBox documentation](https://netboxlabs.com/docs/netbox/models/dcim/module/)\]
+
+### Legend
 
 | sign  | name              | meaning                                                   | example                       |
 |---    |---                |---                                                        |---                            |
